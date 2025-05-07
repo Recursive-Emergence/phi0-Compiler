@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="450" y="50" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">φ⁰ Loop: Recursive Coherence Update in LLM Agents</text>
+  
+  <!-- Main diagram elements -->
+  <g transform="translate(50, 100)">
+    <!-- Memory (Ψ) Component -->
+    <rect x="50" y="150" width="200" height="220" rx="10" ry="10" fill="#e6f2ff" stroke="#3273dc" stroke-width="2"/>
+    <text x="150" y="175" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Agent Memory (Ψ)</text>
+    <text x="150" y="205" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Long-term storage</text>
+    
+    <!-- Memory contents -->
+    <rect x="70" y="225" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
+    <text x="150" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">identity</text>
+    
+    <rect x="70" y="265" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
+    <text x="150" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">beliefs</text>
+    
+    <rect x="70" y="305" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
+    <text x="150" y="325" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">skills</text>
+    
+    <rect x="70" y="345" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
+    <text x="150" y="365" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">goal_history</text>
+    
+    <!-- LLM Component -->
+    <rect x="350" y="40" width="200" height="100" rx="10" ry="10" fill="#fdecf0" stroke="#ff3860" stroke-width="2"/>
+    <text x="450" y="80" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">LLM</text>
+    <text x="450" y="110" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Generates Φ</text>
+    
+    <!-- phi0 Coherence Operator -->
+    <rect x="350" y="190" width="200" height="140" rx="10" ry="10" fill="#fffaeb" stroke="#ffdd57" stroke-width="2"/>
+    <text x="450" y="220" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">φ⁰ Operator</text>
+    <text x="450" y="250" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Coherence Update</text>
+    <text x="450" y="280" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">1. Validate coherence</text>
+    <text x="450" y="305" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">2. Compress insights</text>
+    
+    <!-- Environment (Ω) Component -->
+    <rect x="650" y="150" width="200" height="220" rx="10" ry="10" fill="#edfff4" stroke="#23d160" stroke-width="2"/>
+    <text x="750" y="175" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Environment (Ω)</text>
+    <text x="750" y="205" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Task structure</text>
+    
+    <!-- Environment contents -->
+    <rect x="670" y="225" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
+    <text x="750" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">function registry</text>
+    
+    <rect x="670" y="265" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
+    <text x="750" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">tool schema</text>
+    
+    <rect x="670" y="305" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
+    <text x="750" y="325" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">logical constraints</text>
+    
+    <rect x="670" y="345" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
+    <text x="750" y="365" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">observations</text>
+    
+    <!-- Agent Actions Component -->
+    <rect x="350" y="380" width="200" height="80" rx="10" ry="10" fill="#f2eaff" stroke="#7957d5" stroke-width="2"/>
+    <text x="450" y="415" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Agent Actions</text>
+    <text x="450" y="440" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Tasks & Environment Interaction</text>
+    
+    <!-- Arrows -->
+    <!-- Memory to LLM -->
+    <path d="M 250 220 C 280 220, 280 90, 350 90" fill="none" stroke="#3273dc" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="275" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#3273dc">Inform</text>
+    
+    <!-- LLM to phi0 -->
+    <path d="M 450 140 L 450 190" fill="none" stroke="#ff3860" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="480" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ff3860">Φ</text>
+    
+    <!-- Environment to phi0 -->
+    <path d="M 650 260 L 550 260" fill="none" stroke="#23d160" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="600" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#23d160">Ω</text>
+    
+    <!-- Memory to phi0 -->
+    <path d="M 250 260 L 350 260" fill="none" stroke="#3273dc" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="300" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#3273dc">Ψt</text>
+    
+    <!-- phi0 to Memory -->
+    <path d="M 350 300 C 310 300, 310 320, 250 320" fill="none" stroke="#ffdd57" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="300" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffdd57">Ψt+1</text>
+    
+    <!-- phi0 to Actions -->
+    <path d="M 450 330 L 450 380" fill="none" stroke="#ffdd57" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- Actions to Environment -->
+    <path d="M 550 420 C 600 420, 680 420, 700 370" fill="none" stroke="#7957d5" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="630" y="405" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7957d5">Interact</text>
+    
+    <!-- Environment to Actions -->
+    <path d="M 700 330 C 680 360, 600 360, 550 390" fill="none" stroke="#23d160" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="630" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#23d160">Feedback</text>
+    
+    <!-- Arrowhead marker definition -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+      </marker>
+    </defs>
+  </g>
+  
+  <!-- Equation -->
+  <rect x="250" y="500" width="400" height="60" rx="10" ry="10" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="450" y="540" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="bold" fill="#333">Ψt+1 = φ⁰(Ψt, Φt, Ω)</text>
+</svg>

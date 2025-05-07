@@ -87,7 +87,7 @@ This represents the emergence of a stable identity through recursive self-modeli
 
 ### Connection to Kleene's Recursion Theorem
 
-φ⁰ can be understood as a symbolic analogue to Kleene's recursion theorem in computability theory. Just as the recursion theorem establishes the existence of self-referential programs through a fixed-point construction, φ⁰ establishes the existence of stable, self-coherent symbolic structures through recursive stabilization.
+φ⁰ can be understood as a symbolic analogue to Kleene's recursion theorem in computability theory. Just as the recursion theorem establishes the existence of self-referential programs through a fixed-point construction, φ⁰ establishes the existence of stable, self-coherent symbolic structures through recursive stabilization. This mirrors how Gödel's incompleteness theorems utilize self-referential statements to explore the limits of formal systems, suggesting φ⁰ operates in a similar meta-logical space for symbolic coherence.
 
 For any symbolic transformation function $f: \mathcal{S} \to \mathcal{S}$, there exists a fixed point $s$ such that:
 
@@ -161,9 +161,8 @@ Let $\varphi^0 = \lim\limits_{t \to \infty} \mathcal{R}_t(\Psi)$ denote the attr
 Assume two contradiction fields $\Psi_1 = (\psi^+_1, \psi^-_1)$ and $\Psi_2 = (\psi^+_2, \psi^-_2)$.
 
 **Case 1:** $\Psi_1 \not\cong \Psi_2$ (non-isomorphic fields). Then the recursive trajectories $\mathcal{R}_t(\Psi_1)$ and $\mathcal{R}_t(\Psi_2)$ differ in their fixed point convergence:
-$$
-\Rightarrow \varphi^0_1 \neq \varphi^0_2
-$$
+
+$$\Rightarrow \varphi^0_1 \neq \varphi^0_2$$
 
 **Case 2:** $\Psi_1 \cong \Psi_2$ (isomorphic symbolic contradiction structure), with $\mathcal{R}_1 = \mathcal{R}_2$. Then:
 $$
@@ -277,7 +276,7 @@ $$
 
 **Implication:** The $\Phi$ field is not the largest by entropy—but by coherence. It completes the recursive structure of symbolic meaning.
 
-**Diagram:** *[To be inserted: Lattice diagram mapping $\mathcal{S} \to $\mathcal{F} \to \Phi$ with $\varphi^0$ as attractor node.]*
+**Diagram:** *[To be inserted: Lattice diagram mapping $\mathcal{S} \to \mathcal{F} \to \Phi$ with $\varphi^0$ as attractor node.]*
 
 ## Fundamental Mathematics of RE
 ### Definitions and Symbols
