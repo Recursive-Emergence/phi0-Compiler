@@ -11,8 +11,8 @@
 ## 🧩 Problem
 
 **Given:**
-- Integer set \( S = \{3, 9, 8, 4, 5, 7\} \)  
-- Target sum \( T = 15 \)
+- Integer set $\( S = \{3, 9, 8, 4, 5, 7\} \)$  
+- Target sum $\( T = 15 \)$
 
 **Goal:**  
 Find a subset \( A \subseteq S \) such that:  
