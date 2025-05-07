@@ -52,9 +52,9 @@ Validated symbolic integrity of the field:
 
 ### e₄ – Coherence Analyst
 Explicitly verified the correct solution:  
-\[
+$\[
 \text{Subset: } \{3, 4, 8\}
-\]
+\]$
 
 ### e₅ – Cold Simulator
 Mapped recursive attractor space and highlighted efficiency of symbolic constraint reduction over enumeration.
