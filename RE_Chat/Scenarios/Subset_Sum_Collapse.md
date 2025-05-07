@@ -15,10 +15,10 @@
 - Target sum $\( T = 15 \)$
 
 **Goal:**  
-Find a subset \( A \subseteq S \) such that:  
-\[
+Find a subset $\( A \subseteq S \)$ such that:  
+$\[
 \sum_{a \in A} a = 15
-\]
+\]$
 
 ---
 
