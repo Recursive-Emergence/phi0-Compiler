@@ -1,107 +1,528 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 900 600"
+   version="1.1"
+   id="svg29"
+   sodipodi:docname="agent_diagram.svg"
+   inkscape:version="1.4 (e7c3feb, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs29" />
+  <sodipodi:namedview
+     id="namedview29"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.81111111"
+     inkscape:cx="450"
+     inkscape:cy="478.9726"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg29" />
   <!-- Background -->
-  <rect width="900" height="600" fill="#f8f9fa" rx="10" ry="10"/>
-  
+  <rect
+     width="900"
+     height="600"
+     fill="#f8f9fa"
+     rx="10"
+     ry="10"
+     id="rect1" />
   <!-- Title -->
-  <text x="450" y="50" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">φ⁰ Loop: Recursive Coherence Update in LLM Agents</text>
-  
+  <text
+     x="450"
+     y="50"
+     font-family="Arial, sans-serif"
+     font-size="24"
+     text-anchor="middle"
+     font-weight="bold"
+     fill="#333"
+     id="text1">φ⁰ Loop: Recursive Coherence Update in LLM Agents</text>
   <!-- Main diagram elements -->
-  <g transform="translate(50, 100)">
+  <g
+     transform="translate(17.945205,43.287671)"
+     id="g28">
     <!-- Memory (Ψ) Component -->
-    <rect x="50" y="150" width="200" height="220" rx="10" ry="10" fill="#e6f2ff" stroke="#3273dc" stroke-width="2"/>
-    <text x="150" y="175" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Agent Memory (Ψ)</text>
-    <text x="150" y="205" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Long-term storage</text>
-    
+    <rect
+       x="50"
+       y="150"
+       width="200"
+       height="239.72603"
+       rx="10"
+       ry="10.000001"
+       fill="#e6f2ff"
+       stroke="#3273dc"
+       stroke-width="2"
+       id="rect2" />
+    <text
+       x="150"
+       y="175"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       text-anchor="middle"
+       font-weight="bold"
+       fill="#1a1a1a"
+       id="text2">Agent Memory (Ψ)</text>
+    <text
+       x="150"
+       y="205"
+       font-family="Arial, sans-serif"
+       font-size="16px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text3">Long-term storage</text>
     <!-- Memory contents -->
-    <rect x="70" y="225" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
-    <text x="150" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">identity</text>
-    
-    <rect x="70" y="265" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
-    <text x="150" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">beliefs</text>
-    
-    <rect x="70" y="305" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
-    <text x="150" y="325" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">skills</text>
-    
-    <rect x="70" y="345" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#3273dc" stroke-width="1"/>
-    <text x="150" y="365" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">goal_history</text>
-    
+    <rect
+       x="70"
+       y="225"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#3273dc"
+       stroke-width="1"
+       id="rect3" />
+    <text
+       x="150"
+       y="245"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text4">identity</text>
+    <rect
+       x="70"
+       y="265"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#3273dc"
+       stroke-width="1"
+       id="rect4" />
+    <text
+       x="150"
+       y="285"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text5">beliefs</text>
+    <rect
+       x="70"
+       y="305"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#3273dc"
+       stroke-width="1"
+       id="rect5" />
+    <text
+       x="150"
+       y="325"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text6">skills</text>
+    <rect
+       x="70"
+       y="345"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#3273dc"
+       stroke-width="1"
+       id="rect6" />
+    <text
+       x="150"
+       y="365"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text7">goal_history</text>
     <!-- LLM Component -->
-    <rect x="350" y="40" width="200" height="100" rx="10" ry="10" fill="#fdecf0" stroke="#ff3860" stroke-width="2"/>
-    <text x="450" y="80" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">LLM</text>
-    <text x="450" y="110" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Generates Φ</text>
-    
+    <rect
+       x="350"
+       y="40"
+       width="200"
+       height="100"
+       rx="10"
+       ry="10"
+       fill="#fdecf0"
+       stroke="#ff3860"
+       stroke-width="2"
+       id="rect7" />
+    <text
+       x="450"
+       y="80"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       text-anchor="middle"
+       font-weight="bold"
+       fill="#1a1a1a"
+       id="text8">LLM</text>
+    <text
+       x="450"
+       y="110"
+       font-family="Arial, sans-serif"
+       font-size="16px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text9">Generates Φ</text>
     <!-- phi0 Coherence Operator -->
-    <rect x="350" y="190" width="200" height="140" rx="10" ry="10" fill="#fffaeb" stroke="#ffdd57" stroke-width="2"/>
-    <text x="450" y="220" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">φ⁰ Operator</text>
-    <text x="450" y="250" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Coherence Update</text>
-    <text x="450" y="280" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">1. Validate coherence</text>
-    <text x="450" y="305" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">2. Compress insights</text>
-    
+    <rect
+       x="350"
+       y="190"
+       width="200"
+       height="140"
+       rx="10"
+       ry="10"
+       fill="#fffaeb"
+       stroke="#ffdd57"
+       stroke-width="2"
+       id="rect9" />
+    <text
+       x="450"
+       y="220"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       text-anchor="middle"
+       font-weight="bold"
+       fill="#1a1a1a"
+       id="text10">φ⁰ Operator</text>
+    <text
+       x="450"
+       y="250"
+       font-family="Arial, sans-serif"
+       font-size="16px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text11">Coherence Update</text>
+    <text
+       x="450"
+       y="280"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text12">1. Validate coherence</text>
+    <text
+       x="450"
+       y="305"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text13">2. Compress insights</text>
     <!-- Environment (Ω) Component -->
-    <rect x="650" y="150" width="200" height="220" rx="10" ry="10" fill="#edfff4" stroke="#23d160" stroke-width="2"/>
-    <text x="750" y="175" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Environment (Ω)</text>
-    <text x="750" y="205" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Task structure</text>
-    
+    <rect
+       x="650"
+       y="150"
+       width="200"
+       height="237.26027"
+       rx="10"
+       ry="10"
+       fill="#edfff4"
+       stroke="#23d160"
+       stroke-width="2"
+       id="rect13" />
+    <text
+       x="750"
+       y="175"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       text-anchor="middle"
+       font-weight="bold"
+       fill="#1a1a1a"
+       id="text14">Environment (Ω)</text>
+    <text
+       x="750"
+       y="205"
+       font-family="Arial, sans-serif"
+       font-size="16px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text15">Task structure</text>
     <!-- Environment contents -->
-    <rect x="670" y="225" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
-    <text x="750" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">function registry</text>
-    
-    <rect x="670" y="265" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
-    <text x="750" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">tool schema</text>
-    
-    <rect x="670" y="305" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
-    <text x="750" y="325" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">logical constraints</text>
-    
-    <rect x="670" y="345" width="160" height="30" rx="5" ry="5" fill="#ffffff" stroke="#23d160" stroke-width="1"/>
-    <text x="750" y="365" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a4a4a">observations</text>
-    
+    <rect
+       x="670"
+       y="225"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#23d160"
+       stroke-width="1"
+       id="rect15" />
+    <text
+       x="750"
+       y="245"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text16">function registry</text>
+    <rect
+       x="670"
+       y="265"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#23d160"
+       stroke-width="1"
+       id="rect16" />
+    <text
+       x="750"
+       y="285"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text17">tool schema</text>
+    <rect
+       x="670"
+       y="305"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#23d160"
+       stroke-width="1"
+       id="rect17" />
+    <text
+       x="750"
+       y="325"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text18">logical constraints</text>
+    <rect
+       x="670"
+       y="345"
+       width="160"
+       height="30"
+       rx="5"
+       ry="5"
+       fill="#ffffff"
+       stroke="#23d160"
+       stroke-width="1"
+       id="rect18" />
+    <text
+       x="750"
+       y="365"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text19">observations</text>
     <!-- Agent Actions Component -->
-    <rect x="350" y="380" width="200" height="80" rx="10" ry="10" fill="#f2eaff" stroke="#7957d5" stroke-width="2"/>
-    <text x="450" y="415" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#1a1a1a">Agent Actions</text>
-    <text x="450" y="440" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#4a4a4a">Tasks & Environment Interaction</text>
-    
+    <rect
+       x="335.20547"
+       y="380"
+       width="224.65755"
+       height="80"
+       rx="10.000001"
+       ry="10"
+       fill="#f2eaff"
+       stroke="#7957d5"
+       stroke-width="2"
+       id="rect19" />
+    <text
+       x="450"
+       y="415"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       text-anchor="middle"
+       font-weight="bold"
+       fill="#1a1a1a"
+       id="text20">Agent Actions</text>
+    <text
+       x="450"
+       y="440"
+       font-family="Arial, sans-serif"
+       font-size="16px"
+       text-anchor="middle"
+       fill="#4a4a4a"
+       id="text21">Tasks Environment Interaction</text>
     <!-- Arrows -->
     <!-- Memory to LLM -->
-    <path d="M 250 220 C 280 220, 280 90, 350 90" fill="none" stroke="#3273dc" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="275" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#3273dc">Inform</text>
-    
+    <path
+       d="M 250,220 C 280,220 280,90 350,90"
+       fill="none"
+       stroke="#3273dc"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path21" />
+    <text
+       x="275"
+       y="165"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#3273dc"
+       id="text22">Inform</text>
     <!-- LLM to phi0 -->
-    <path d="M 450 140 L 450 190" fill="none" stroke="#ff3860" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="480" y="165" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ff3860">Φ</text>
-    
+    <path
+       d="m 450,140 v 50"
+       fill="none"
+       stroke="#ff3860"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path22" />
+    <text
+       x="480"
+       y="165"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#ff3860"
+       id="text23">Φ</text>
     <!-- Environment to phi0 -->
-    <path d="M 650 260 L 550 260" fill="none" stroke="#23d160" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="600" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#23d160">Ω</text>
-    
+    <path
+       d="M 650,260 H 550"
+       fill="none"
+       stroke="#23d160"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path23" />
+    <text
+       x="600"
+       y="245"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#23d160"
+       id="text24">Ω</text>
     <!-- Memory to phi0 -->
-    <path d="M 250 260 L 350 260" fill="none" stroke="#3273dc" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="300" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#3273dc">Ψt</text>
-    
+    <path
+       d="M 250,260 H 350"
+       fill="none"
+       stroke="#3273dc"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path24" />
+    <text
+       x="300"
+       y="245"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#3273dc"
+       id="text25">Ψt</text>
     <!-- phi0 to Memory -->
-    <path d="M 350 300 C 310 300, 310 320, 250 320" fill="none" stroke="#ffdd57" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="300" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#ffdd57">Ψt+1</text>
-    
+    <path
+       d="m 350,300 c -40,0 -40,20 -100,20"
+       fill="none"
+       stroke="#ffdd57"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path25" />
+    <text
+       x="300"
+       y="330"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#ffdd57"
+       id="text26">Ψt+1</text>
     <!-- phi0 to Actions -->
-    <path d="M 450 330 L 450 380" fill="none" stroke="#ffdd57" stroke-width="3" marker-end="url(#arrowhead)"/>
-    
+    <path
+       d="m 450,330 v 50"
+       fill="none"
+       stroke="#ffdd57"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path26" />
     <!-- Actions to Environment -->
-    <path d="M 550 420 C 600 420, 680 420, 700 370" fill="none" stroke="#7957d5" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="630" y="405" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7957d5">Interact</text>
-    
+    <path
+       d="m 550,420 c 50,0 130,0 150,-50"
+       fill="none"
+       stroke="#7957d5"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path27" />
+    <text
+       x="630"
+       y="405"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#7957d5"
+       id="text27">Interact</text>
     <!-- Environment to Actions -->
-    <path d="M 700 330 C 680 360, 600 360, 550 390" fill="none" stroke="#23d160" stroke-width="3" marker-end="url(#arrowhead)"/>
-    <text x="630" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#23d160">Feedback</text>
-    
+    <path
+       d="m 700,330 c -20,30 -100,30 -150,60"
+       fill="none"
+       stroke="#23d160"
+       stroke-width="3"
+       marker-end="url(#arrowhead)"
+       id="path28" />
+    <text
+       x="610.27399"
+       y="347.80823"
+       font-family="Arial, sans-serif"
+       font-size="14px"
+       text-anchor="middle"
+       fill="#23d160"
+       id="text28">Feedback</text>
     <!-- Arrowhead marker definition -->
-    <defs>
-      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    <defs
+       id="defs28">
+      <marker
+         id="arrowhead"
+         markerWidth="10"
+         markerHeight="7"
+         refX="10"
+         refY="3.5"
+         orient="auto">
+        <polygon
+           points="10,3.5 0,7 0,0 "
+           fill="#333333"
+           id="polygon28" />
       </marker>
     </defs>
   </g>
-  
   <!-- Equation -->
-  <rect x="250" y="500" width="400" height="60" rx="10" ry="10" fill="#fff" stroke="#333" stroke-width="2"/>
-  <text x="450" y="540" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" font-weight="bold" fill="#333">Ψt+1 = φ⁰(Ψt, Φt, Ω)</text>
+  <rect
+     x="231.50685"
+     y="535.75342"
+     width="400"
+     height="60"
+     rx="10"
+     ry="10"
+     fill="#ffffff"
+     stroke="#333333"
+     stroke-width="2"
+     id="rect28" />
+  <text
+     x="427.8082"
+     y="562.19177"
+     font-family="Arial, sans-serif"
+     font-size="22px"
+     text-anchor="middle"
+     font-weight="bold"
+     fill="#333333"
+     id="text29">Ψt+1 = φ⁰(Ψt, Φt, Ω)</text>
 </svg>
