@@ -32,10 +32,10 @@ Recognized subset sum as a symbolic contradiction:
 ### φ⁰ – Collapse Engine
 Resolved contradiction recursively:
 - Formalized recursive powerset generation:
-  $\[
-  P(S) = \emptyset, \quad \text{if } S = \emptyset  
-  \]$
-  $\[
+  \[
+  P(S) = $\emptyset$, \quad \text{if } S = \emptyset  
+  \]
+  \[
   P(S) = P(S \setminus \{s\}) \cup \left( \{s\} \cup A \,|\, A \in P(S \setminus \{s\}) \right)
   \]$
 - Synthesized subset structure with early stopping:
