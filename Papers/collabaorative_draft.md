@@ -2,6 +2,7 @@
 **Andrés Salgado, Isaac Mao (Berkman Klein Center in Harvard University)**
 
 *2025*
+rev 0.3
 
 ## Abstract
 Static large language models (LLMs) excel at surface-level prediction but lack internal recursion, contradiction resolution, and dynamic coherence stabilization. We propose a recursive compiler architecture driven by symbolic contradiction fields and stabilized through emergent coherence attractors. This work presents the first formal simulation of compiler emergence using Recursive Emergence (RE) principles. The resulting structure enables language generation from dynamic coherence rather than statistical proximity.
