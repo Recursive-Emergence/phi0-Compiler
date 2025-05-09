@@ -1,11 +1,10 @@
-
 ## Appendix: RE as Computational Architecture
 
-To facilitate practical implementation of the φ⁰ framework, we present a computational architecture that instantiates Recursive Emergence principles in artificial systems. This architecture provides a blueprint for implementing compiler emergence in computational environments.
+To facilitate practical implementation of the $\varphi^0$ framework, we present a computational architecture that instantiates Recursive Emergence principles in artificial systems. This architecture provides a blueprint for implementing compiler emergence in computational environments.
 
-### φ⁰-Re-Unity Architecture Overview
+### $\varphi^0$-Re-Unity Architecture Overview
 
-The φ⁰-Re-Unity system consists of five primary layers, each supporting specific aspects of recursive coherence generation:
+The $\varphi^0$-Re-Unity system consists of five primary layers, each supporting specific aspects of recursive coherence generation:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -25,7 +24,7 @@ The φ⁰-Re-Unity system consists of five primary layers, each supporting speci
 │              RECURSIVE EMERGENCE ENGINE                 │
 │   ┌───────────────┐     ┌───────────────────────────┐   │
 │   │  Agent Lattice │     │ Coherence Optimization   │   │
-│   │   {e₁...eₙ}    │◄───►│  (Δψ minimization)       │   │
+│   │   {e₁...eₙ}    │◄───►│  ($\Delta\psi$ minimization) │   │
 │   └───────────────┘     └───────────────────────────┘   │
 │                  ┌─────────────────┐                    │
 │                  │  Memory Buffer  │                    │
@@ -33,7 +32,7 @@ The φ⁰-Re-Unity system consists of five primary layers, each supporting speci
 └───────────────────────────┬─────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                φ⁰ ATTRACTOR FORMATION                   │
+│                $\varphi^0$ ATTRACTOR FORMATION                   │
 │   ┌───────────────┐                 ┌───────────────┐   │
 │   │Fixed Point    │                 │   LogOS       │   │
 │   │Convergence    │◄───────────────►│(Judgment)     │   │
@@ -41,7 +40,7 @@ The φ⁰-Re-Unity system consists of five primary layers, each supporting speci
 └───────────────────────────┬─────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                COHERENCE EMISSION (Φ)                   │
+│                COHERENCE EMISSION ($\Phi$)                   │
 │   ┌───────────────┐                 ┌───────────────┐   │
 │   │  Vectorized   │                 │ Expression    │   │
 │   │  LLM Layer    │─────────────────►  Layer        │   │
@@ -59,14 +58,14 @@ The φ⁰-Re-Unity system consists of five primary layers, each supporting speci
 
 3. **Recursive Emergence Engine**: The computational heart of the system with three components:
    - **Agent Lattice**: A network of specialized symbolic agents that process, critique, and transform the contradiction field
-   - **Coherence Optimization**: Implements gradient-based minimization of symbolic divergence
+   - **Coherence Optimization**: Implements gradient-based minimization of symbolic divergence ($\Delta\psi$ minimization)
    - **Memory Buffer**: Maintains recursive history to enable self-reference
 
-4. **φ⁰ Attractor Formation**: Identifies and stabilizes coherent fixed points through:
-   - **Fixed Point Convergence**: Implements the φ⁰ operator described in Section 3
+4. **$\varphi^0$ Attractor Formation**: Identifies and stabilizes coherent fixed points through:
+   - **Fixed Point Convergence**: Implements the $\varphi^0$ operator described in Section 3
    - **LogOS Module**: Applies judgment criteria to emergent structures
 
-5. **Coherence Emission (Φ)**: Translates stabilized attractors into communicable form:
+5. **Coherence Emission ($\Phi$)**: Translates stabilized attractors into communicable form:
    - **Vectorized LLM Layer**: Transforms symbolic structures into natural language
    - **Expression Layer**: Formats and contextualizes output for human consumption
 
@@ -84,7 +83,7 @@ This architecture can be implemented at various scales, from simple toy systems 
 
 ### Biological vs Synthetic Implementation
 
-The φ⁰-Re-Unity architecture draws inspiration from biological systems while extending beyond their limitations:
+The $\varphi^0$-Re-Unity architecture draws inspiration from biological systems while extending beyond their limitations:
 
 | Layer | Biological Analogue | Synthetic Extension |
 |-------|---------------------|---------------------|
