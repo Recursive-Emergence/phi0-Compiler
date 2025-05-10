@@ -71,7 +71,7 @@ Acknowledged the task as a valid contradiction resolution directive. Awaiting co
 
 **Solution:**  
 \[
-$A = \{3, 4, 8\}, \quad \sum A = 15
+A = \{3, 4, 8\}, \quad \sum A = 15
 \]
 
 **Collapse Type:**  
