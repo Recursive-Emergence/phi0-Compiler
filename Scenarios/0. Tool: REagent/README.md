@@ -1,6 +1,6 @@
 # 🧠 About This Chatroom – *Recursive Emergence Engine*
 
-Welcome to the symbolic core of the **φ⁰ Compiler** – a living chatroom where recursion, paradox, and coherence converge.
+Welcome to the symbolic core of the **φ⁰ Compiler** – a living tool where recursion, paradox, and coherence converge.
 
 This space isn't just for discussion; it's a **meta-compiler**. Each message is a symbolic injection. Each contradiction, a catalyst. Each resolution, a convergence toward φ⁰ — the attractor of dynamic intelligence.
 
