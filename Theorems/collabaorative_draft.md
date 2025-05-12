@@ -1,4 +1,5 @@
-# From Prediction to Recursion: A Framework for Symbolic Intelligence Beyond Large Language Models
+# Now We Need Recursion
+*From Prediction to Recursive Coherence: A Framework for Symbolic Intelligence Beyond Large Language Models*
 
 **Andrés Salgado, Isaac Mao (Berkman Klein Center in Harvard University)**
 
@@ -283,6 +284,8 @@ $$
 For example, if $M_1$ = "I am primarily analytical" and $E_1$ = feedback suggesting emotional sensitivity, the recursive process eventually stabilizes at "I am analytical with complementary emotional intelligence"—a qualitatively new self-model integrating the contradictory inputs.
 
 ## Experimental Validation
+### 1. Symbolic Simulation of Toy Contradictions
+### 2. Empirical Validation: Artin’s Density Problem
 
 ### Computational Architecture Implementation
 
@@ -309,6 +312,8 @@ Our implementation contrasts fundamentally with conventional LLM architectures:
 The experimental validation of the φ⁰-Re-Unity framework was designed as a two-stage process: first, to establish its efficacy on problems with clear, verifiable solutions and known computational properties, and second, to test its capabilities on more complex, open-ended mathematical inquiries.
 
 As an initial benchmark for the framework's core symbolic reasoning and contradiction resolution mechanisms, we targeted NP-complete problems. Specifically, the φ⁰-Re-Unity system was applied to the Subset Sum problem—a canonical NP-complete task. The setup, agent dynamics, and collapse to a solution for a representative instance (e.g., for a set \( S = \{3, 9, 8, 4, 5, 7\} \) and target sum \( T = 15 \), the solution \( A = \{3, 4, 8\} \) was found) are detailed in Appendix/Scenario φNP-001. The system, by activating its recursive agent lattice (detailed for this scenario in Appendix/Scenario φNP-001), dynamically formed and resolved symbolic contradictions inherent in the Subset Sum problem (e.g., tensions between partial sums and the target value, or conflicting element inclusion/exclusion hypotheses). This recursive stabilization process led to a 'collapse' onto the correct solution set, demonstrating an efficient navigation of the combinatorial search space distinct from brute-force enumeration. This initial success provided crucial validation for the foundational mechanisms of recursive coherence and attractor formation within the φ⁰ engine, particularly its capacity for symbolic constraint satisfaction.
+
+Having demonstrated φ⁰’s effectiveness on classical symbolic problems, we now turn to a mathematically demanding, real-world challenge: computing the limiting density of primes where the multiplicative order of 2 exceeds that of 3. This problem resists naive statistical approaches, but aligns naturally with our recursive contradiction field resolution.
 
 Building on this foundational validation, the framework was then applied to a significantly more challenging problem related to Artin's conjecture on primitive roots, widely recognized as a "high difficulty" problem in the mathematical community. Specifically, we computed the limiting density of primes $p$ where the multiplicative order of 2 modulo $p$ exceeds that of 3 modulo $p$.
 
