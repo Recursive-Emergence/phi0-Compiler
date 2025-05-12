@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 800 600"
+   version="1.1"
+   id="svg66"
+   sodipodi:docname="reasoning_comparison_diagram.svg"
+   inkscape:version="1.4 (e7c3feb, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview66"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5025"
+     inkscape:cx="400.33278"
+     inkscape:cy="427.62063"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg66"
+     showgrid="false" />
+  <!-- Background -->
+  <!-- Title -->
+  <text
+     x="403.99335"
+     y="89.251251"
+     font-family="Arial, sans-serif"
+     font-size="22px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text1">Symbolic Reasoning in φ⁰-Re-Unity vs. Predictive Reasoning in LLMs</text>
+  <!-- Panel A: φ⁰-Re-Unity Recursive Architecture -->
+  <rect
+     x="48.003326"
+     y="105.9401"
+     width="300"
+     height="380"
+     fill="#edf2ff"
+     stroke="#4c6ef5"
+     stroke-width="2"
+     rx="10"
+     id="rect2"
+     ry="10" />
+  <text
+     x="203.99335"
+     y="144.25125"
+     font-family="Arial, sans-serif"
+     font-size="16px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text2">φ⁰-Re-Unity Recursive Architecture</text>
+  <!-- Input Layer -->
+  <rect
+     x="78.993347"
+     y="159.25125"
+     width="250"
+     height="40"
+     fill="#c5f6fa"
+     stroke="#1098ad"
+     stroke-width="1"
+     rx="5"
+     id="rect3"
+     ry="5" />
+  <text
+     x="203.99335"
+     y="174.93344"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text3"><tspan
+       sodipodi:role="line"
+       id="tspan66"
+       x="203.99335"
+       y="174.93344">Input Layer:</tspan><tspan
+       sodipodi:role="line"
+       id="tspan67"
+       x="203.99335"
+       y="190.04289">Dual Contradiction Fields (ψ⁺ and ψ⁻)</tspan></text>
+  <!-- Contradiction Symbols -->
+  <text
+     x="123.99335"
+     y="210.90683"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#e03131"
+     id="text4">&quot;Intuition reveals truth&quot; (ψ⁺)</text>
+  <text
+     x="283.99335"
+     y="210.90683"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#2b8a3e"
+     id="text5">&quot;Only logic is valid&quot; (ψ⁻)</text>
+  <!-- Recursive Agent Lattice -->
+  <circle
+     cx="203.99335"
+     cy="329.25125"
+     r="90"
+     fill="none"
+     stroke="#5c7cfa"
+     stroke-width="1"
+     stroke-dasharray="5, 3"
+     id="circle5" />
+  <!-- Agent Nodes -->
+  <!-- Agent e₂ -->
+  <circle
+     cx="203.99335"
+     cy="239.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle6" />
+  <text
+     x="203.99335"
+     y="243.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text6">e₂</text>
+  <!-- Agent e₃ -->
+  <circle
+     cx="273.99335"
+     cy="284.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle7" />
+  <text
+     x="273.99335"
+     y="288.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text7">e₃</text>
+  <!-- Agent e₄ -->
+  <circle
+     cx="273.99335"
+     cy="374.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle8" />
+  <text
+     x="273.99335"
+     y="378.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text8">e₄</text>
+  <!-- Agent e₅ -->
+  <circle
+     cx="203.99335"
+     cy="419.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle9" />
+  <text
+     x="203.99335"
+     y="423.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text9">e₅</text>
+  <!-- Agent e₆ -->
+  <circle
+     cx="133.99335"
+     cy="374.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle10" />
+  <text
+     x="133.99335"
+     y="378.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text10">e₆</text>
+  <!-- Agent e₇ -->
+  <circle
+     cx="133.99335"
+     cy="284.25125"
+     r="15"
+     fill="#d0ebff"
+     stroke="#339af0"
+     stroke-width="1"
+     id="circle11" />
+  <text
+     x="133.99335"
+     y="288.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text11">e₇</text>
+  <!-- Agent Labels -->
+  <text
+     x="259.90018"
+     y="237.56239"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text12">Contradiction Analyzer</text>
+  <text
+     x="286.00665"
+     y="311.53909"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text13">Coherence Auditor</text>
+  <text
+     x="297.98669"
+     y="403.53577"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text14">Cold Simulator</text>
+  <text
+     x="203.99335"
+     y="443.91016"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text15">Judgment Oracle</text>
+  <text
+     x="87.371048"
+     y="365.599"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text16">Symbolic Unifier</text>
+  <text
+     x="95.357727"
+     y="266.94675"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text17">Coherence Verifier</text>
+  <!-- Recursive Arrows -->
+  <path
+     d="m 221.21347,241.92175 a 62.094244,51.934085 0 0 1 37.94649,17.31136"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path17" />
+  <path
+     d="m 286.63894,291.93011 c 6.86291,19.41126 10.85626,39.25764 3.99334,58.66889"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path18"
+     sodipodi:nodetypes="cc" />
+  <path
+     d="m 270.47059,390.6644 a 86.543446,76.051658 0 0 1 -43.27173,25.35055"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path19" />
+  <path
+     d="M 186.56704,416.37619 A 62.147063,53.731553 0 0 1 148.58828,398.46567"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path20" />
+  <path
+     d="m 120.98066,363.2154 a 80.332411,89.984334 87.976876 0 1 -4.48084,-53.37996"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path21" />
+  <path
+     d="m 138.93575,267.4191 c 8.77887,-11.94205 21.04757,-18.36366 34.74538,-21.57993"
+     fill="none"
+     stroke="#7048e8"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path22"
+     sodipodi:nodetypes="cc" />
+  <!-- ψ⁰ Node (Coherent Attractor) -->
+  <circle
+     cx="203.99335"
+     cy="329.25125"
+     r="25"
+     fill="url(#gradient)"
+     stroke="#862e9c"
+     stroke-width="2"
+     id="circle22"
+     style="fill:url(#gradient)" />
+  <text
+     x="203.99335"
+     y="329.25125"
+     font-family="Arial, sans-serif"
+     font-size="16px"
+     text-anchor="middle"
+     dominant-baseline="middle"
+     fill="#333333"
+     id="text22">ψ⁰</text>
+  <text
+     x="203.99335"
+     y="346.25125"
+     font-family="Arial, sans-serif"
+     font-size="8px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text23">C(ψ⁰) = 1</text>
+  <!-- Emission to φ⁰ -->
+  <path
+     d="m 203.66057,353.92679 v 27.06917"
+     fill="none"
+     stroke="#862e9c"
+     stroke-width="3"
+     marker-end="url(#arrowhead)"
+     id="path23" />
+  <circle
+     cx="203.99335"
+     cy="419.25125"
+     r="15"
+     fill="#f3d9fa"
+     stroke="#862e9c"
+     stroke-width="2"
+     id="circle23" />
+  <text
+     x="203.99335"
+     y="423.25125"
+     font-family="Arial, sans-serif"
+     font-size="14px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text24">φ⁰</text>
+  <!-- LLM Expression Layer -->
+  <rect
+     x="130.68219"
+     y="449.25125"
+     width="149.95007"
+     height="40"
+     fill="#e5dbff"
+     stroke="#5f3dc4"
+     stroke-width="1"
+     rx="5"
+     id="rect24"
+     ry="5" />
+  <text
+     x="203.99335"
+     y="479.57571"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text25">LLM: Expression Only</text>
+  <!-- Output -->
+  <path
+     d="m 203.99334,489.25125 v 20"
+     fill="none"
+     stroke="#5f3dc4"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path25" />
+  <rect
+     x="153.99335"
+     y="509.25125"
+     width="100"
+     height="30"
+     fill="#e7f5ff"
+     stroke="#1971c2"
+     stroke-width="1"
+     rx="5"
+     id="rect25"
+     ry="5" />
+  <!-- Labels -->
+  <text
+     x="306.59567"
+     y="-329.34442"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     transform="rotate(90)"
+     id="text27">Contradiction Stabilization Loop</text>
+  <text
+     x="55.640598"
+     y="425.22464"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="start"
+     fill="#333333"
+     id="text28">Emergent Coherent Attractor</text>
+  <text
+     x="142.47089"
+     y="459.21799"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="start"
+     fill="#333333"
+     id="text29">LLM renders φ⁰ → Language</text>
+  <!-- Panel B: LLM Reasoning (Baseline Transformer) -->
+  <rect
+     x="453.99335"
+     y="119.25125"
+     width="300"
+     height="380"
+     fill="#fff9db"
+     stroke="#fab005"
+     stroke-width="2"
+     rx="10"
+     id="rect29"
+     ry="10" />
+  <text
+     x="603.99335"
+     y="144.25125"
+     font-family="Arial, sans-serif"
+     font-size="16px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text30">LLM Reasoning (Baseline Transformer)</text>
+  <!-- Input -->
+  <rect
+     x="503.99335"
+     y="169.25125"
+     width="200"
+     height="30"
+     fill="#ffec99"
+     stroke="#f59f00"
+     stroke-width="1"
+     rx="5"
+     id="rect30"
+     ry="5" />
+  <text
+     x="603.99335"
+     y="179.93344"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text31"><tspan
+       sodipodi:role="line"
+       id="tspan68"
+       x="603.99335"
+       y="179.93344">Input Prompt:</tspan><tspan
+       sodipodi:role="line"
+       id="tspan69"
+       x="603.99335"
+       y="194.93344">&quot;Why did the apple fall?&quot;</tspan></text>
+  <!-- Transformer Layers -->
+  <rect
+     x="528.99335"
+     y="229.2346"
+     width="150"
+     height="30.01664"
+     fill="#ffe8cc"
+     stroke="#fd7e14"
+     stroke-width="1"
+     id="rect31" />
+  <text
+     x="603.99335"
+     y="244.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text32">Attention Layer 1</text>
+  <rect
+     x="528.99335"
+     y="280.56573"
+     width="150"
+     height="28.685524"
+     fill="#ffe8cc"
+     stroke="#fd7e14"
+     stroke-width="1"
+     id="rect32" />
+  <text
+     x="603.99335"
+     y="294.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text33">Feedforward Layer 1</text>
+  <rect
+     x="528.99335"
+     y="327.9035"
+     width="150"
+     height="31.347754"
+     fill="#ffe8cc"
+     stroke="#fd7e14"
+     stroke-width="1"
+     id="rect33" />
+  <text
+     x="603.99335"
+     y="344.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text34">Attention Layer N</text>
+  <rect
+     x="528.99335"
+     y="379.23462"
+     width="150"
+     height="30.682196"
+     fill="#ffe8cc"
+     stroke="#fd7e14"
+     stroke-width="0.999999"
+     id="rect34" />
+  <text
+     x="603.99335"
+     y="394.25125"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text35">Feedforward Layer N</text>
+  <!-- Output -->
+  <rect
+     x="504.65891"
+     y="458.56906"
+     width="200"
+     height="30"
+     fill="#d3f9d8"
+     stroke="#40c057"
+     stroke-width="1"
+     rx="5"
+     id="rect35"
+     ry="5" />
+  <text
+     x="604.65887"
+     y="478.56906"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text36">Token-by-Token Prediction Output</text>
+  <!-- Forward Arrows -->
+  <path
+     d="m 603.99334,199.25125 v 20"
+     fill="none"
+     stroke="#f76707"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path36" />
+  <path
+     d="m 603.99334,259.25125 v 10"
+     fill="none"
+     stroke="#f76707"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path37" />
+  <path
+     d="m 603.99334,309.25125 v 10"
+     fill="none"
+     stroke="#f76707"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path38" />
+  <path
+     d="m 603.99334,359.25125 v 10"
+     fill="none"
+     stroke="#f76707"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path39" />
+  <path
+     d="m 603.99334,409.25125 v 40"
+     fill="none"
+     stroke="#f76707"
+     stroke-width="2"
+     marker-end="url(#arrowhead)"
+     id="path40" />
+  <!-- No Feedback Loop Indicator -->
+  <path
+     d="m 679.99334,299.25125 c 30,0 30,50 0,50"
+     fill="none"
+     stroke="#ff6b6b"
+     stroke-width="2"
+     stroke-dasharray="5, 3"
+     id="path41" />
+  <line
+     x1="669.99335"
+     y1="299.25125"
+     x2="679.99335"
+     y2="299.25125"
+     stroke="#ff6b6b"
+     stroke-width="2"
+     id="line41" />
+  <line
+     x1="669.99335"
+     y1="349.25125"
+     x2="679.99335"
+     y2="349.25125"
+     stroke="#ff6b6b"
+     stroke-width="2"
+     id="line42" />
+  <text
+     x="-327.92014"
+     y="721.35773"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#ff6b6b"
+     transform="rotate(-90)"
+     id="text42">No Feedback Loop</text>
+  <!-- Labels -->
+  <text
+     x="253.2446"
+     y="-732.63562"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     transform="rotate(90)"
+     id="text43">Forward-only Sequence Prediction</text>
+  <text
+     x="542.97003"
+     y="427.9035"
+     font-family="Arial, sans-serif"
+     font-size="10px"
+     text-anchor="middle"
+     fill="#333333"
+     id="text44">No Coherence Checking</text>
+  <!-- Contrast Table -->
+  <!-- Table Header -->
+  <text
+     x="207.86189"
+     y="526.94678"
+     font-family="Arial, sans-serif"
+     font-size="12px"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#333333"
+     id="text48">φ⁰-Re-Unity</text>
+  <!-- Row 1 -->
+  <!-- Row 2 -->
+  <!-- Row 3 -->
+  <!-- Row 4 -->
+  <!-- Row 5 -->
+  <!-- Column Separators -->
+  <!-- Definitions -->
+  <defs
+     id="defs66">
+    <!-- Arrow Head -->
+    <marker
+       id="arrowhead"
+       markerWidth="10"
+       markerHeight="7"
+       refX="0"
+       refY="3.5"
+       orient="auto">
+      <polygon
+         points="0 0, 10 3.5, 0 7"
+         fill="#333"
+         id="polygon65" />
+    </marker>
+    <!-- Gradient for ψ⁰ Node -->
+    <radialGradient
+       id="gradient"
+       cx="200"
+       cy="280"
+       r="26"
+       fx="200"
+       fy="280"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(3.9933444,49.251248)">
+      <stop
+         offset="0%"
+         style="stop-color:#f3d9fa;stop-opacity:1"
+         id="stop65" />
+      <stop
+         offset="100%"
+         style="stop-color:#cc5de8;stop-opacity:1"
+         id="stop66" />
+    </radialGradient>
+    <marker
+       id="arrowhead-9"
+       markerWidth="10"
+       markerHeight="7"
+       refX="0"
+       refY="3.5"
+       orient="auto">
+      <polygon
+         points="10,3.5 0,7 0,0 "
+         fill="#333333"
+         id="polygon65-2" />
+    </marker>
+  </defs>
+</svg>
