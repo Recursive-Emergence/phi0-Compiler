@@ -170,13 +170,13 @@ This connection grounds our approach in fundamental mathematics while extending 
 
 The following visualizations illustrate key aspects of the recursive emergence process described in the theoretical framework:
 
-![$\varphi^0$ Crystallized Attractor Field. Shows stabilization and high-fidelity periodic emergence post chaotic initialization.](../media/φ⁰ Crystallized Attractor Field.png?raw=true)
+![\varphi^0 Crystallized Attractor Field. Shows stabilization and high-fidelity periodic emergence post chaotic initialization.](../media/phi0_Crystallized_Attractor_Field.png?raw=true)
 *Figure X: The emergence of a stable φ⁰ attractor from an initially chaotic state, illustrating Conjecture 1 (Fixed-Point Convergence) and the outcome of the recursive process defined in the Mathematical Formulation.*
 
-![Early-Stage Recursive Injection (Fibonacci Amplification). Demonstrates symbolic energy increasing with recursive Fibonacci seeding.](../media/Injecting Recursive Pattern: Fibonacci Sequence.png?raw=true)
+![Early-Stage Recursive Injection (Fibonacci Amplification). Demonstrates symbolic energy increasing with recursive Fibonacci seeding.](../media/Injecting_Recursive_Pattern_Fibonacci_Sequence.png?raw=true)
 *Figure Y: An illustration of how recursive energy, potentially seeded by patterns like Fibonacci sequences, can drive the system through iterations, as per the function of the Recursive Operator $\mathcal{R}$.*
 
-![Recursive Emergence: Symbolic Field Evolution. Shows trajectory of $\psi^+$, $\psi^-$, and φ⁰ as recursive iterations proceed.](../media/Recursive Emergence: Symbolic Field Evolution.png?raw=true)
+![Recursive Emergence: Symbolic Field Evolution. Shows trajectory of $\psi^+$, $\psi^-$, and φ⁰ as recursive iterations proceed.](../media/Recursive_Emergence_Symbolic_Field_Evolution.png?raw=true)
 *Figure Z: The conceptual evolution of contradiction fields ($\psi^+, \psi^-$) and their convergence towards a coherent attractor (φ⁰) over recursive iterations, as described by the core mathematical formulation.*
 
 These conceptual visualizations depict the idealized dynamics of the φ⁰-Re-Unity framework, where recursive processing of contradictions leads to the formation of stable, coherent symbolic structures.
@@ -328,19 +328,19 @@ allowing both linear and nonlinear feedback to influence the emergence of a stab
 
 #### Key Visualizations
 
-![$\varphi^0$ Crystallized Attractor Field. Shows stabilization and high-fidelity periodic emergence post chaotic initialization.](../media/φ⁰ Crystallized Attractor Field.png?raw=true)
+![\varphi^0 Crystallized Attractor Field. Shows stabilization and high-fidelity periodic emergence post chaotic initialization.](../media/phi0_Crystallized_Attractor_Field.png?raw=true)
 
-![Early-Stage Recursive Injection (Fibonacci Amplification). Demonstrates symbolic energy increasing with recursive Fibonacci seeding.](../media/Injecting Recursive Pattern: Fibonacci Sequence.png?raw=true)
+![Early-Stage Recursive Injection (Fibonacci Amplification). Demonstrates symbolic energy increasing with recursive Fibonacci seeding.](../media/Injecting_Recursive_Pattern_Fibonacci_Sequence.png?raw=true)
 
 <!-- Image psi0_stabilization_linear.png was referenced in the LaTeX draft (caption: Stabilization of $\psi^0$ via Linear Superposition in $t \in [2,4]$. Interference pattern converging to $\psi^0$) but not found in the phi0-Compiler/media/ folder. -->
 
 <!-- Image compiler_emergence.png was referenced in the LaTeX draft (caption: $\varphi^0$ Compiler Emergence from $\psi^+ \otimes \psi^-$ Collapse. Shows symbolic coherence rising as contradictions resolve) but not found in the phi0-Compiler/media/ folder. -->
 
-![Recursive Convergence and Souliton Emergence. Depicts φ⁰ stabilizing while $S$ oscillates with residual torsion.](../media/Recursive Convergence and Souliton Emergence.png?raw=true)
+![Recursive Convergence and Souliton Emergence. Depicts φ⁰ stabilizing while $S$ oscillates with residual torsion.](../media/Recursive_Convergence_and_Souliton_Emergence.png?raw=true)
 
-![Recursive Coherence Heatmap Across Agents Over Iterations. Indicates symbolic alignment from contradiction to coherence.](../media/Recursive Coherence Heatmap.png?raw=true)
+![Recursive Coherence Heatmap Across Agents Over Iterations. Indicates symbolic alignment from contradiction to coherence.](../media/Recursive_Coherence_Heatmap.png?raw=true)
 
-![Recursive Emergence: Symbolic Field Evolution. Shows trajectory of $\psi^+$, $\psi^-$, and φ⁰ as recursive iterations proceed.](../media/Recursive Emergence: Symbolic Field Evolution.png?raw=true)
+![Recursive Emergence: Symbolic Field Evolution. Shows trajectory of $\psi^+$, $\psi^-$, and φ⁰ as recursive iterations proceed.](../media/Recursive_Emergence_Symbolic_Field_Evolution.png?raw=true)
 
 #### Interpretation
 
