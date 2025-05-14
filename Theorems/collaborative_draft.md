@@ -31,7 +31,7 @@ A recursive contradiction field Ψ = (ψ⁺, ψ⁻) is initialized. As recursive
 
 Eventually, a stable attractor emerges: **restorative justice**—a concept that honors the need for accountability **and** the potential for healing. This attractor $\phi^0$ did not pre-exist in either pole; it is not a compromise or midpoint. It is a qualitatively new symbolic structure that only emerged because the system recursively processed contradiction until a coherent synthesis formed.
 
-This metaphor illustrates the core idea behind ($\phi^0$)-Re-Unity: contradiction is not noise; it is generative. Systems that recursively resolve symbolic tensions can reach attractor states—$\phi^0$—that exhibit both coherence and novelty.
+This metaphor illustrates the core idea behind $\phi^0$-Re-Unity : contradiction is not noise; it is generative. Systems that recursively resolve symbolic tensions can reach attractor states—$\phi^0$—that exhibit both coherence and novelty.
 
 ## Notation and Terminology
 
