@@ -57,9 +57,9 @@ To support clarity throughout this paper, we adopt distinct symbols to represent
   **Physical Emergence of Compiler Coherence** — Represents the emergent, observable manifestation of $\phi^0$ within recursive systems. This includes agent behavior, language generation patterns, and symbolic self-stabilization in time.
 
 We formalize their relationship as:
-$$
-\varphi^0 = \mathcal{P}(\phi^0, \Psi)
-$$
+
+$$\varphi^0 = \mathcal{P}(\phi^0, \Psi)$$
+
 where $\mathcal{P}$ is a projection operator acting on the recursive symbolic field $\Psi$ (denoted $\psi^0$), translating ontological recursion into emergent behavior.
 
 ## Background & Related Work
