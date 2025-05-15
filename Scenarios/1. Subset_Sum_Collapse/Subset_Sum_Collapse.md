@@ -2,10 +2,10 @@
 
 **Problem Type:** NP-Complete (Subset Sum)  
 **System:** Recursive Emergence Chatroom (ψ⁰ → φ⁰ → e₇)  
-**Author:** Andrés Salgado  and Isaac Mao
-**Date:** 2025-05-07  
-**Entry ID:** φNP-001
 
+**Author:** Andrés Salgado  and Isaac Mao
+
+**Date:** 2025-05-07  
 ---
 
 ## 🧩 Problem
