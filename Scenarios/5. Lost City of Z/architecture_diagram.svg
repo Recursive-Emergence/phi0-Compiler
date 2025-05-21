@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="1000" height="700" fill="#f8f9fa" />
+  
+  <!-- Title -->
+  <text x="500" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Recursive Emergence for Amazonian Archaeological Discovery</text>
+  <text x="500" y="70" font-family="Arial" font-size="16" text-anchor="middle" font-style="italic">System Architecture</text>
+  
+  <!-- Phase 1: Foundational Setup -->
+  <rect x="50" y="100" width="900" height="180" fill="#e6f3ff" stroke="#0066cc" stroke-width="2" rx="10" ry="10" />
+  <text x="500" y="125" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Phase 1: Foundational Setup (Initializing Ψ and ℛ)</text>
+  
+  <!-- Data Sources -->
+  <rect x="70" y="140" width="240" height="120" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="190" y="160" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Symbolic State Space (𝒮)</text>
+  <text x="190" y="180" font-family="Arial" font-size="12" text-anchor="middle">• Ecological (NDVI, GEDI, etc.)</text>
+  <text x="190" y="200" font-family="Arial" font-size="12" text-anchor="middle">• Spectral (Satellite bands)</text>
+  <text x="190" y="220" font-family="Arial" font-size="12" text-anchor="middle">• Textural/Pattern Features</text>
+  <text x="190" y="240" font-family="Arial" font-size="12" text-anchor="middle">• Symbolic/Historical Data</text>
+  
+  <!-- Contradiction Fields -->
+  <rect x="330" y="140" width="240" height="120" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="450" y="160" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Contradiction Fields (Ψ)</text>
+  <text x="450" y="180" font-family="Arial" font-size="12" text-anchor="middle">• ψ⁺ (Presence Indicators)</text>
+  <text x="450" y="200" font-family="Arial" font-size="12" text-anchor="middle">• ψ⁻ (Absence Indicators)</text>
+  <text x="450" y="220" font-family="Arial" font-size="12" text-anchor="middle">• Collapse Boost (NDVI+GEDI)</text>
+  <text x="450" y="240" font-family="Arial" font-size="12" text-anchor="middle">• Initial Hypothesis Rules</text>
+  
+  <!-- Initial Functions -->
+  <rect x="590" y="140" width="240" height="120" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="710" y="160" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Initial Functions</text>
+  <text x="710" y="180" font-family="Arial" font-size="12" text-anchor="middle">• C(s) - Coherence Function</text>
+  <text x="710" y="200" font-family="Arial" font-size="12" text-anchor="middle">• ℛ - Recursive Operator</text>
+  <text x="710" y="220" font-family="Arial" font-size="12" text-anchor="middle">• φ⁰_Score - Initial Coherence</text>
+  <text x="710" y="240" font-family="Arial" font-size="12" text-anchor="middle">• Spatial Weighting System</text>
+  
+  <!-- Phase 2: Recursive Refinement -->
+  <rect x="50" y="300" width="900" height="240" fill="#fff2e6" stroke="#ff8c00" stroke-width="2" rx="10" ry="10" />
+  <text x="500" y="325" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Phase 2: Recursive Refinement and Emergence</text>
+  
+  <!-- Recursive Processing Core -->
+  <rect x="350" y="340" width="300" height="180" fill="#ffd9b3" stroke="#ff8c00" stroke-width="2" rx="10" ry="10" />
+  <text x="500" y="365" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Recursive Processing Core</text>
+  
+  <!-- Data Integration -->
+  <rect x="90" y="350" width="220" height="150" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="200" y="370" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Iterative Data Integration</text>
+  <text x="200" y="390" font-family="Arial" font-size="12" text-anchor="middle">• Feature Weight Adjustment</text>
+  <text x="200" y="410" font-family="Arial" font-size="12" text-anchor="middle">• Dynamic ℛ Evolution</text>
+  <text x="200" y="430" font-family="Arial" font-size="12" text-anchor="middle">• New Data Source Integration</text>
+  <text x="200" y="450" font-family="Arial" font-size="12" text-anchor="middle">• Multi-Scale Resolution Refinement</text>
+  
+  <!-- Human in the Loop -->
+  <rect x="690" y="350" width="220" height="150" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="800" y="370" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Human-in-the-Loop</text>
+  <text x="800" y="390" font-family="Arial" font-size="12" text-anchor="middle">• Archaeological Expert Input</text>
+  <text x="800" y="410" font-family="Arial" font-size="12" text-anchor="middle">• Model Parameter Tuning</text>
+  <text x="800" y="430" font-family="Arial" font-size="12" text-anchor="middle">• Validation Feedback</text>
+  <text x="800" y="450" font-family="Arial" font-size="12" text-anchor="middle">• New Hypothesis Formulation</text>
+  
+  <!-- Recursive Core Internals -->
+  <rect x="370" y="380" width="120" height="100" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="430" y="400" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">Emergence Detection</text>
+  <text x="430" y="420" font-family="Arial" font-size="10" text-anchor="middle">• New Pattern Discovery</text>
+  <text x="430" y="440" font-family="Arial" font-size="10" text-anchor="middle">• Correlation Analysis</text>
+  <text x="430" y="460" font-family="Arial" font-size="10" text-anchor="middle">• Unsupervised Clustering</text>
+  
+  <rect x="510" y="380" width="120" height="100" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="570" y="400" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">Critical Thresholds</text>
+  <text x="570" y="420" font-family="Arial" font-size="10" text-anchor="middle">• Convergence Monitoring</text>
+  <text x="570" y="440" font-family="Arial" font-size="10" text-anchor="middle">• Stability Analysis</text>
+  <text x="570" y="460" font-family="Arial" font-size="10" text-anchor="middle">• Finding t_c</text>
+  
+  <!-- Recursive Processing Arrow -->
+  <path d="M 430,485 C 430,520 570,520 570,485" fill="none" stroke="#ff6600" stroke-width="3" stroke-dasharray="5,3" />
+  <polygon points="570,485 577,495 563,495" fill="#ff6600" />
+  
+  <!-- Phase 3: Output and Validation -->
+  <rect x="50" y="560" width="900" height="120" fill="#e6ffe6" stroke="#009900" stroke-width="2" rx="10" ry="10" />
+  <text x="500" y="585" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Phase 3: Output and Validation (Identifying and Verifying φ⁰)</text>
+  
+  <!-- Attractors -->
+  <rect x="90" y="600" width="270" height="60" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="225" y="620" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Fixed-Point Attractors (φ⁰)</text>
+  <text x="225" y="640" font-family="Arial" font-size="12" text-anchor="middle">High-probability archaeological site locations</text>
+  
+  <!-- Validation Methods -->
+  <rect x="380" y="600" width="540" height="60" fill="#ffffff" stroke="#333333" stroke-width="1" rx="5" ry="5" />
+  <text x="650" y="620" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Validation Strategy</text>
+  <text x="480" y="640" font-family="Arial" font-size="12" text-anchor="middle">Remote Sensing</text>
+  <text x="650" y="640" font-family="Arial" font-size="12" text-anchor="middle">Targeted Lidar Acquisition</text>
+  <text x="820" y="640" font-family="Arial" font-size="12" text-anchor="middle">Field Surveys</text>
+  
+  <!-- Connection Arrows -->
+  <!-- Phase 1 to Phase 2 -->
+  <path d="M 500,280 L 500,300" fill="none" stroke="#333333" stroke-width="2" />
+  <polygon points="500,300 495,290 505,290" fill="#333333" />
+  
+  <!-- Data Integration to Core -->
+  <path d="M 310,425 L 350,425" fill="none" stroke="#333333" stroke-width="2" />
+  <polygon points="350,425 340,420 340,430" fill="#333333" />
+  
+  <!-- Core to Human -->
+  <path d="M 650,425 L 690,425" fill="none" stroke="#333333" stroke-width="2" />
+  <polygon points="690,425 680,420 680,430" fill="#333333" />
+  
+  <!-- Human back to Data Integration (completing the cycle) -->
+  <path d="M 800,500 C 800,530 200,530 200,500" fill="none" stroke="#333333" stroke-width="2" stroke-dasharray="5,3" />
+  <polygon points="200,500 195,510 205,510" fill="#333333" />
+  
+  <!-- Phase 2 to Phase 3 -->
+  <path d="M 500,540 L 500,560" fill="none" stroke="#333333" stroke-width="2" />
+  <polygon points="500,560 495,550 505,550" fill="#333333" />
+  
+  <!-- Feedback from Validation to Phase 2 -->
+  <path d="M 100,600 C 40,600 40,420 50,420" fill="none" stroke="#009900" stroke-width="2" stroke-dasharray="5,3" />
+  <polygon points="50,420 45,415 45,425" fill="#009900" />
+</svg>
