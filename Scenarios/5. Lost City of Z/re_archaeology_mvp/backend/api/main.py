@@ -57,7 +57,8 @@ app.include_router(earth_engine.router, prefix=settings.API_V1_STR, tags=["earth
 # Mount static files for frontend
 frontend_path = pathlib.Path(__file__).parent.parent.parent / "frontend"
 if frontend_path.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_path), html=True), name="frontend")
+    # Mount frontend at /frontend instead of root path to avoid conflict with API routes
+    app.mount("/frontend", StaticFiles(directory=str(frontend_path), html=True), name="frontend")
 
 # Startup event
 @app.on_event("startup")
@@ -66,8 +67,9 @@ async def startup_event():
     
     # Check that we can connect to database and Redis
     try:
+        from sqlalchemy import text
         db = next(get_db())
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
         logger.info("Successfully connected to the database")
     except Exception as e:
         logger.error(f"Database connection failed: {e}")

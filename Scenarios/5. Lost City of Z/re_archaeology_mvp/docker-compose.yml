@@ -32,7 +32,9 @@ services:
     volumes:
       - ./backend:/app/backend
       - ./data:/app/data
+      - ./frontend:/app/frontend
       - ./.env:/app/.env
+      - ./sage-striker-294302-bc8908922c70.json:/app/sage-striker-294302-bc8908922c70.json
     depends_on:
       redis:
         condition: service_healthy
