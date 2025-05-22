@@ -1,0 +1,89 @@
+/* Earth Engine Integration Styles */
+
+.earth-engine-status {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 2000;
+    display: none;
+    overflow: hidden;
+}
+
+.earth-engine-error {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    z-index: 2000;
+    display: none;
+}
+
+.ee-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+}
+
+.ee-status-body {
+    padding: 12px;
+}
+
+.earth-engine-legend {
+    position: absolute;
+    bottom: 100px;
+    right: 420px;
+    z-index: 1000;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.earth-engine-info {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 300px;
+    z-index: 1500;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+/* Process Region Modal */
+.region-processing-header {
+    background-color: #28a745;
+    color: white;
+}
+
+.datasets-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dataset-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.dataset-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

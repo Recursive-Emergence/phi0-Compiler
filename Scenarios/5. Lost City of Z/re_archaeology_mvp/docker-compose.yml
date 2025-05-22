@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Removed PostgreSQL service as we're using remote database
+  
+  redis:
+    image: redis:7.2
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Database URL will be loaded from .env file
+      # For local development, use:
+      # DATABASE_URL=postgresql://re_archaeology:re_archaeology_pass@db:5432/re_archaeology_db
+      # For remote connection, use:
+      # DATABASE_URL=postgresql://postgres:<PASSWORD>@34.59.159.217:5432/postgres
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./backend:/app/backend
+      - ./data:/app/data
+      - ./.env:/app/.env
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: uvicorn backend.api.main:app --host 0.0.0.0 --reload
+
+volumes:
+  redis_data:

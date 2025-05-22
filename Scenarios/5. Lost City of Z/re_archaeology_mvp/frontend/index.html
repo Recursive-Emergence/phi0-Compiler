@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE-Archaeology Agent</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/earth_engine.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .navbar {
+            flex-shrink: 0;
+        }
+        
+        .content-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        #map {
+            flex: 1;
+            height: 100%;
+        }
+        
+        .sidebar {
+            width: 400px;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            border-left: 1px solid #dee2e6;
+        }
+        
+        .tab-content {
+            padding-top: 15px;
+        }
+        
+        .message-container {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .message-human {
+            background-color: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+        }
+        
+        .message-agent {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .controls-container {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            top: 10px;
+            right: 420px;
+            z-index: 1000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .layer-control {
+            margin-bottom: 10px;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            right: 420px;
+            z-index: 1000;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">RE-Archaeology Agent</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="content-container">
+            <div id="map"></div>
+            
+            <div class="controls-container">
+                <h5>Map Controls</h5>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerPhi0" checked>
+                    <label class="form-check-label" for="layerPhi0">φ⁰ Resonance</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerContradictions">
+                    <label class="form-check-label" for="layerContradictions">ψ⁰ Contradictions</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerAttractors">
+                    <label class="form-check-label" for="layerAttractors">ψ⁰ Attractors</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerSeedSites">
+                    <label class="form-check-label" for="layerSeedSites">Known Sites</label>
+                </div>
+                <hr>
+                <h5>Earth Engine Layers</h5>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerNDVI">
+                    <label class="form-check-label" for="layerNDVI">NDVI</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerCanopy">
+                    <label class="form-check-label" for="layerCanopy">Canopy Height</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerTerrain">
+                    <label class="form-check-label" for="layerTerrain">Terrain</label>
+                </div>
+                <div class="layer-control form-check">
+                    <input class="form-check-input" type="checkbox" id="layerWater">
+                    <label class="form-check-label" for="layerWater">Surface Water</label>
+                </div>
+                <hr>
+                <button id="processRegionBtn" class="btn btn-sm btn-success mb-2">Process Current Region</button>
+                <button id="shareMapBtn" class="btn btn-sm btn-primary">Share Map View</button>
+            </div>
+            
+            <div class="legend" id="phi0Legend">
+                <h6>φ⁰ Resonance Score</h6>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff0000"></div>
+                    <span>High (0.8-1.0)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff8800"></div>
+                    <span>Medium-High (0.6-0.8)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ffff00"></div>
+                    <span>Medium (0.4-0.6)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #88ff00"></div>
+                    <span>Medium-Low (0.2-0.4)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #00ff00"></div>
+                    <span>Low (0.0-0.2)</span>
+                </div>
+            </div>
+            
+            <!-- Earth Engine Legends -->
+            <div class="legend earth-engine-legend" id="ndviLegend" style="display: none;">
+                <h6>NDVI (Vegetation Index)</h6>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #006600"></div>
+                    <span>Very dense (0.8-1.0)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #33aa33"></div>
+                    <span>Dense (0.6-0.8)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #77cc77"></div>
+                    <span>Moderate (0.4-0.6)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ccffcc"></div>
+                    <span>Sparse (0.2-0.4)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #eeeeee"></div>
+                    <span>Very sparse (0.0-0.2)</span>
+                </div>
+            </div>
+            
+            <div class="legend earth-engine-legend" id="canopyLegend" style="display: none;">
+                <h6>Canopy Height</h6>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #006600"></div>
+                    <span>Very tall (>30m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #33aa33"></div>
+                    <span>Tall (20-30m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #77cc77"></div>
+                    <span>Medium (10-20m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ccffcc"></div>
+                    <span>Short (5-10m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ffffff"></div>
+                    <span>Very short (<5m)</span>
+                </div>
+            </div>
+            
+            <div class="legend earth-engine-legend" id="terrainLegend" style="display: none;">
+                <h6>Terrain</h6>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #aa3333"></div>
+                    <span>Very steep (>30°)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #cc7777"></div>
+                    <span>Steep (20-30°)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ddaaaa"></div>
+                    <span>Moderate slope (10-20°)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ccccff"></div>
+                    <span>High elevation (>1000m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #8888bb"></div>
+                    <span>Medium elevation (200-500m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #444477"></div>
+                    <span>Low elevation (<100m)</span>
+                </div>
+            </div>
+            
+            <div class="legend earth-engine-legend" id="waterLegend" style="display: none;">
+                <h6>Water Proximity</h6>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #0000ff"></div>
+                    <span>Very close (<50m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #4444ff"></div>
+                    <span>Close (50-200m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #8888ff"></div>
+                    <span>Somewhat close (200-500m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ccccff"></div>
+                    <span>Moderate (500-1000m)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f0f0ff"></div>
+                    <span>Far (>1000m)</span>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Details</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="discussions-tab" data-bs-toggle="tab" data-bs-target="#discussions" type="button" role="tab">Discussions</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="details" role="tabpanel">
+                        <div id="cellDetails">
+                            <div class="alert alert-info">
+                                Click on a cell on the map to see details
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="discussions" role="tabpanel">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5>Discussions</h5>
+                                <button id="newDiscussionBtn" class="btn btn-sm btn-primary">New Discussion</button>
+                            </div>
+                            <div id="discussionsList">
+                                <div class="alert alert-info">
+                                    Loading discussions...
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="discussionDetail" class="d-none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 id="discussionTitle">Discussion Title</h5>
+                                <button id="backToDiscussionsBtn" class="btn btn-sm btn-secondary">Back</button>
+                            </div>
+                            
+                            <div id="messageContainer" class="message-container">
+                                <!-- Messages will be populated here -->
+                            </div>
+                            
+                            <div class="mt-3">
+                                <textarea id="newMessageText" class="form-control mb-2" rows="3" placeholder="Type your message..."></textarea>
+                                <div class="d-flex justify-content-between">
+                                    <button id="attachMapBtn" class="btn btn-sm btn-outline-secondary">
+                                        Attach Current Map View
+                                    </button>
+                                    <button id="sendMessageBtn" class="btn btn-primary">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- New Discussion Modal -->
+    <div class="modal fade" id="newDiscussionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Start New Discussion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="discussionTitleInput" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="discussionTitleInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="discussionDescInput" class="form-label">Description</label>
+                        <textarea class="form-control" id="discussionDescInput" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="createDiscussionBtn">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Map Modal -->
+    <div class="modal fade" id="shareMapModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Share Map View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="mapShareTitle" class="form-label">Title (Optional)</label>
+                        <input type="text" class="form-control" id="mapShareTitle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mapShareDesc" class="form-label">Description (Optional)</label>
+                        <textarea class="form-control" id="mapShareDesc" rows="2"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Shareable URL</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="mapShareUrl" readonly>
+                            <button class="btn btn-outline-secondary" type="button" id="copyUrlBtn">Copy</button>
+                        </div>
+                        <div class="form-text">This URL preserves the current map view, layers, and location.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveMapStateBtn">Save & Copy Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/earth_engine.js"></script>
+    <script src="js/earth_engine_ui.js"></script>
+    <script>
+        // Constants
+        const API_URL = 'http://localhost:8000/api/v1';
+        
+        // Map initialization
+        const map = L.map('map').setView([-12.2714, -69.4420], 8); // Center on Amazon basin
+        
+        // Base map layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Layer groups
+        const phi0Layer = L.layerGroup().addTo(map);
+        const contradictionsLayer = L.layerGroup();
+        const attractorsLayer = L.layerGroup();
+        const seedSitesLayer = L.layerGroup();
+        
+        // Keep track of current state
+        let currentDiscussionId = null;
+        let currentMapState = null;
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wire up event handlers
+            document.getElementById('layerPhi0').addEventListener('change', toggleLayer);
+            document.getElementById('layerContradictions').addEventListener('change', toggleLayer);
+            document.getElementById('layerAttractors').addEventListener('change', toggleLayer);
+            document.getElementById('layerSeedSites').addEventListener('change', toggleLayer);
+            
+            // Earth Engine layers
+            document.getElementById('layerNDVI').addEventListener('change', toggleEarthEngineLayer);
+            document.getElementById('layerCanopy').addEventListener('change', toggleEarthEngineLayer);
+            document.getElementById('layerTerrain').addEventListener('change', toggleEarthEngineLayer);
+            document.getElementById('layerWater').addEventListener('change', toggleEarthEngineLayer);
+            
+            // Earth Engine process button
+            document.getElementById('processRegionBtn').addEventListener('click', openProcessRegionModal);
+            
+            document.getElementById('newDiscussionBtn').addEventListener('click', openNewDiscussionModal);
+            document.getElementById('createDiscussionBtn').addEventListener('click', createDiscussion);
+            document.getElementById('backToDiscussionsBtn').addEventListener('click', showDiscussionsList);
+            document.getElementById('sendMessageBtn').addEventListener('click', sendMessage);
+            document.getElementById('shareMapBtn').addEventListener('click', openShareMapModal);
+            document.getElementById('saveMapStateBtn').addEventListener('click', saveMapState);
+            document.getElementById('copyUrlBtn').addEventListener('click', copyShareUrl);
+            
+            // Load discussions
+            loadDiscussions();
+            
+            // Load data for map
+            loadPhi0Data();
+            
+            // Check URL for map state
+            checkUrlForMapState();
+            
+            // No need to load Earth Engine legends, they're now included directly in the HTML
+            // The legends are included directly in the HTML for better reliability
+        });
+        
+        // Toggle map layers
+        function toggleLayer(e) {
+            const layerId = e.target.id;
+            const checked = e.target.checked;
+            
+            if (layerId === 'layerPhi0') {
+                if (checked) {
+                    map.addLayer(phi0Layer);
+                } else {
+                    map.removeLayer(phi0Layer);
+                }
+            } else if (layerId === 'layerContradictions') {
+                if (checked) {
+                    if (contradictionsLayer.getLayers().length === 0) {
+                        loadContradictionsData();
+                    }
+                    map.addLayer(contradictionsLayer);
+                } else {
+                    map.removeLayer(contradictionsLayer);
+                }
+            } else if (layerId === 'layerAttractors') {
+                if (checked) {
+                    if (attractorsLayer.getLayers().length === 0) {
+                        loadAttractorsData();
+                    }
+                    map.addLayer(attractorsLayer);
+                } else {
+                    map.removeLayer(attractorsLayer);
+                }
+            } else if (layerId === 'layerSeedSites') {
+                if (checked) {
+                    if (seedSitesLayer.getLayers().length === 0) {
+                        loadSeedSitesData();
+                    }
+                    map.addLayer(seedSitesLayer);
+                } else {
+                    map.removeLayer(seedSitesLayer);
+                }
+            }
+            
+            updateUrlWithMapState();
+        }
+        
+        // Load phi0 resonance data
+        function loadPhi0Data() {
+            fetch(`${API_URL}/phi0-results/heatmap`)
+                .then(response => response.json())
+                .then(data => {
+                    displayPhi0Heatmap(data.data);
+                })
+                .catch(error => console.error('Error loading phi0 data:', error));
+        }
+        
+        // Display phi0 heatmap
+        function displayPhi0Heatmap(data) {
+            phi0Layer.clearLayers();
+            
+            data.forEach(point => {
+                const color = getColorForScore(point.score);
+                const radius = 500 + (point.score * 500); // Radius based on score
+                
+                const circle = L.circle([point.lat, point.lng], {
+                    color: color,
+                    fillColor: color,
+                    fillOpacity: 0.5,
+                    radius: radius
+                });
+                
+                circle.cellId = point.cell_id;
+                circle.score = point.score;
+                
+                circle.on('click', function() {
+                    loadCellDetails(this.cellId);
+                });
+                
+                phi0Layer.addLayer(circle);
+            });
+        }
+        
+        // Get color based on phi0 score
+        function getColorForScore(score) {
+            if (score >= 0.8) return '#ff0000'; // Red
+            if (score >= 0.6) return '#ff8800'; // Orange
+            if (score >= 0.4) return '#ffff00'; // Yellow
+            if (score >= 0.2) return '#88ff00'; // Light green
+            return '#00ff00'; // Green
+        }
+        
+        // Load cell details
+        function loadCellDetails(cellId) {
+            Promise.all([
+                fetch(`${API_URL}/phi0-results/${cellId}`).then(resp => resp.json()),
+                fetch(`${API_URL}/environmental-data/${cellId}`).then(resp => resp.json()),
+                // Try to get Earth Engine data if available
+                fetch(`${API_URL}/earth-engine/process-cell/${cellId}`)
+                    .then(resp => resp.ok ? resp.json() : null)
+                    .catch(() => null) // Ignore errors for Earth Engine data
+            ])
+            .then(([phi0Data, envData, eeData]) => {
+                displayCellDetails(phi0Data, envData, eeData);
+            })
+            .catch(error => {
+                console.error('Error loading cell details:', error);
+                document.getElementById('cellDetails').innerHTML = `
+                    <div class="alert alert-danger">
+                        Error loading details for cell ${cellId}
+                    </div>
+                `;
+            });
+        }
+        
+        // Display cell details
+        function displayCellDetails(phi0Data, envData, eeData) {
+            const detailsContainer = document.getElementById('cellDetails');
+            
+            const contradictions = phi0Data.contradiction_patterns?.contradictions || [];
+            const contradictionsList = contradictions.map(c => 
+                `<li><strong>${c.type}</strong>: ${c.description} (strength: ${(c.strength * 100).toFixed(1)}%)</li>`
+            ).join('');
+            
+            // Earth Engine data section
+            let earthEngineSection = '';
+            if (eeData) {
+                earthEngineSection = `
+                <div class="card mt-3">
+                    <div class="card-header bg-success text-white">
+                        Earth Engine Analysis
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>NDVI (Sentinel-2):</strong> ${eeData.ndvi?.ndvi_mean?.toFixed(2) || 'N/A'}</p>
+                                <p><strong>Canopy Height:</strong> ${eeData.canopy?.canopy_height_mean?.toFixed(2) || 'N/A'} m</p>
+                                <p><strong>Tree Cover %:</strong> ${eeData.canopy?.tree_cover_percent?.toFixed(1) || 'N/A'}%</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>Elevation (SRTM):</strong> ${eeData.terrain?.elevation_mean?.toFixed(1) || 'N/A'} m</p>
+                                <p><strong>Slope:</strong> ${eeData.terrain?.slope_mean?.toFixed(1) || 'N/A'}°</p>
+                                <p><strong>Water Distance:</strong> ${eeData.water?.water_distance_mean?.toFixed(0) || 'N/A'} m</p>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p><strong>Analysis date:</strong> ${eeData.processing_timestamp ? new Date(eeData.processing_timestamp).toLocaleString() : 'N/A'}</p>
+                        </div>
+                    </div>
+                </div>
+                `;
+            } else {
+                earthEngineSection = `
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-success" onclick="processSingleCellEarthEngine('${phi0Data.cell_id}')">
+                        Analyze with Earth Engine
+                    </button>
+                </div>
+                `;
+            }
+            
+            detailsContainer.innerHTML = `
+                <h5>Cell ${phi0Data.cell_id}</h5>
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">
+                        φ⁰ Resonance Score: ${(phi0Data.phi0_score * 100).toFixed(1)}%
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Site Type Prediction:</strong> ${phi0Data.site_type_prediction}</p>
+                        <p><strong>Confidence Interval:</strong> ±${(phi0Data.confidence_interval * 100).toFixed(1)}%</p>
+                        
+                        <h6>Detected Contradictions:</h6>
+                        ${contradictionsList.length > 0 
+                            ? `<ul>${contradictionsList}</ul>` 
+                            : '<p>No contradictions detected</p>'
+                        }
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Environmental Data</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>NDVI:</strong> ${envData.ndvi_mean?.toFixed(2) || 'N/A'}</p>
+                                <p><strong>Canopy Height:</strong> ${envData.canopy_height_mean?.toFixed(2) || 'N/A'} m</p>
+                                <p><strong>Elevation:</strong> ${envData.elevation_mean?.toFixed(2) || 'N/A'} m</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>Slope:</strong> ${envData.slope_mean?.toFixed(2) || 'N/A'}°</p>
+                                <p><strong>Water Proximity:</strong> ${envData.water_proximity?.toFixed(2) || 'N/A'} m</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                ${earthEngineSection}
+                
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-outline-primary" onclick="openDiscussionAboutCell('${phi0Data.cell_id}')">
+                        Discuss This Location
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Load discussions
+        function loadDiscussions() {
+            fetch(`${API_URL}/discussions/`)
+                .then(response => response.json())
+                .then(discussions => {
+                    displayDiscussionsList(discussions);
+                })
+                .catch(error => {
+                    console.error('Error loading discussions:', error);
+                    document.getElementById('discussionsList').innerHTML = `
+                        <div class="alert alert-danger">
+                            Error loading discussions
+                        </div>
+                    `;
+                });
+        }
+        
+        // Display discussions list
+        function displayDiscussionsList(discussions) {
+            const container = document.getElementById('discussionsList');
+            
+            if (discussions.length === 0) {
+                container.innerHTML = `
+                    <div class="alert alert-info">
+                        No discussions yet. Start a new discussion!
+                    </div>
+                `;
+                return;
+            }
+            
+            const discussionItems = discussions.map(disc => `
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h6 class="card-title">${disc.title}</h6>
+                        <p class="card-text small text-muted">${disc.description || ''}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-secondary">${disc.message_count} messages</span>
+                            <button class="btn btn-sm btn-primary" onclick="openDiscussion(${disc.id})">Open</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            container.innerHTML = discussionItems;
+        }
+        
+        // Open discussion
+        function openDiscussion(discussionId) {
+            currentDiscussionId = discussionId;
+            
+            // Load discussion details and messages
+            Promise.all([
+                fetch(`${API_URL}/discussions/${discussionId}`).then(resp => resp.json()),
+                fetch(`${API_URL}/discussions/${discussionId}/messages`).then(resp => resp.json())
+            ])
+            .then(([discussion, messages]) => {
+                document.getElementById('discussionsList').classList.add('d-none');
+                document.getElementById('discussionDetail').classList.remove('d-none');
+                document.getElementById('discussionTitle').textContent = discussion.title;
+                
+                displayMessages(messages);
+            })
+            .catch(error => {
+                console.error('Error loading discussion:', error);
+            });
+        }
+        
+        // Display messages
+        function displayMessages(messages) {
+            const container = document.getElementById('messageContainer');
+            
+            if (messages.length === 0) {
+                container.innerHTML = `
+                    <div class="alert alert-info">
+                        No messages in this discussion yet. Start the conversation!
+                    </div>
+                `;
+                return;
+            }
+            
+            const messagesHtml = messages.map(msg => {
+                const isAgent = msg.author_type === 'agent';
+                const messageClass = isAgent ? 'message-agent' : 'message-human';
+                
+                let mapStateHtml = '';
+                if (msg.map_state_reference) {
+                    mapStateHtml = `
+                        <div class="mt-2">
+                            <button class="btn btn-sm btn-outline-secondary" 
+                                onclick='loadMapState(${JSON.stringify(msg.map_state_reference)})'>
+                                View Map Reference
+                            </button>
+                        </div>
+                    `;
+                }
+                
+                return `
+                    <div class="message ${messageClass}">
+                        <div class="message-header">
+                            <span>${msg.author_name}</span>
+                            <span>${new Date(msg.created_at).toLocaleString()}</span>
+                        </div>
+                        <div class="message-content">
+                            ${msg.message_content}
+                        </div>
+                        ${mapStateHtml}
+                        ${msg.replies_count > 0 ? 
+                            `<div class="text-end mt-2">
+                                <button class="btn btn-sm btn-link" onclick="loadReplies(${msg.id})">
+                                    Show ${msg.replies_count} ${msg.replies_count === 1 ? 'reply' : 'replies'}
+                                </button>
+                            </div>` : ''}
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = messagesHtml;
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        // Show discussions list
+        function showDiscussionsList() {
+            document.getElementById('discussionDetail').classList.add('d-none');
+            document.getElementById('discussionsList').classList.remove('d-none');
+            currentDiscussionId = null;
+        }
+        
+        // Open new discussion modal
+        function openNewDiscussionModal() {
+            const modal = new bootstrap.Modal(document.getElementById('newDiscussionModal'));
+            modal.show();
+        }
+        
+        // Create new discussion
+        function createDiscussion() {
+            const title = document.getElementById('discussionTitleInput').value.trim();
+            const description = document.getElementById('discussionDescInput').value.trim();
+            
+            if (!title) {
+                alert('Please enter a discussion title');
+                return;
+            }
+            
+            fetch(`${API_URL}/discussions/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: title,
+                    description: description
+                })
+            })
+            .then(response => response.json())
+            .then(discussion => {
+                // Close modal
+                bootstrap.Modal.getInstance(document.getElementById('newDiscussionModal')).hide();
+                
+                // Clear form
+                document.getElementById('discussionTitleInput').value = '';
+                document.getElementById('discussionDescInput').value = '';
+                
+                // Reload discussions
+                loadDiscussions();
+            })
+            .catch(error => {
+                console.error('Error creating discussion:', error);
+                alert('Error creating discussion');
+            });
+        }
+        
+        // Open discussion about specific cell
+        function openDiscussionAboutCell(cellId) {
+            const modal = new bootstrap.Modal(document.getElementById('newDiscussionModal'));
+            document.getElementById('discussionTitleInput').value = `Discussion about cell ${cellId}`;
+            document.getElementById('discussionDescInput').value = `Analysis and observations regarding potential site at cell ${cellId}`;
+            modal.show();
+        }
+        
+        // Send message
+        function sendMessage() {
+            if (!currentDiscussionId) return;
+            
+            const messageText = document.getElementById('newMessageText').value.trim();
+            if (!messageText) return;
+            
+            const messageData = {
+                author_type: 'human',
+                author_name: 'Human Expert',
+                message_content: messageText,
+                map_state_reference: currentMapState
+            };
+            
+            fetch(`${API_URL}/discussions/${currentDiscussionId}/messages`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(messageData)
+            })
+            .then(response => response.json())
+            .then(message => {
+                // Clear input
+                document.getElementById('newMessageText').value = '';
+                currentMapState = null;
+                
+                // Reload messages
+                return fetch(`${API_URL}/discussions/${currentDiscussionId}/messages`);
+            })
+            .then(response => response.json())
+            .then(messages => {
+                displayMessages(messages);
+                
+                // Request agent response
+                return fetch(`${API_URL}/discussions/${currentDiscussionId}/agent_response`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message_id: messages[messages.length - 1].id
+                    })
+                });
+            })
+            .then(response => response.json())
+            .then(() => {
+                // Reload messages after agent response
+                return fetch(`${API_URL}/discussions/${currentDiscussionId}/messages`);
+            })
+            .then(response => response.json())
+            .then(messages => {
+                displayMessages(messages);
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+            });
+        }
+        
+        // Open share map modal
+        function openShareMapModal() {
+            // Update map state
+            updateCurrentMapState();
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('shareMapModal'));
+            document.getElementById('mapShareTitle').value = '';
+            document.getElementById('mapShareDesc').value = '';
+            
+            // Update URL field with current location
+            const url = constructMapStateUrl();
+            document.getElementById('mapShareUrl').value = url;
+            
+            modal.show();
+        }
+        
+        // Save map state to backend
+        function saveMapState() {
+            const title = document.getElementById('mapShareTitle').value.trim();
+            const description = document.getElementById('mapShareDesc').value.trim();
+            
+            fetch(`${API_URL}/map-states/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    state_params: getCurrentMapParams(),
+                    title: title || null,
+                    description: description || null,
+                    created_by: 'User'
+                })
+            })
+            .then(response => response.json())
+            .then(state => {
+                // Update URL with state ID
+                const url = constructMapStateUrl(state.state_id);
+                document.getElementById('mapShareUrl').value = url;
+                
+                // Copy to clipboard
+                copyShareUrl();
+                
+                // Close modal after delay
+                setTimeout(() => {
+                    bootstrap.Modal.getInstance(document.getElementById('shareMapModal')).hide();
+                }, 2000);
+            })
+            .catch(error => {
+                console.error('Error saving map state:', error);
+                alert('Error saving map state');
+            });
+        }
+        
+        // Copy share URL to clipboard
+        function copyShareUrl() {
+            const urlField = document.getElementById('mapShareUrl');
+            urlField.select();
+            document.execCommand('copy');
+            
+            // Show feedback
+            const button = document.getElementById('copyUrlBtn');
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+        
+        // Update current map state
+        function updateCurrentMapState() {
+            currentMapState = getCurrentMapParams();
+        }
+        
+        // Get current map parameters
+        function getCurrentMapParams() {
+            const center = map.getCenter();
+            const zoom = map.getZoom();
+            
+            return {
+                lat: center.lat,
+                lng: center.lng,
+                zoom: zoom,
+                layers: {
+                    phi0: document.getElementById('layerPhi0').checked,
+                    contradictions: document.getElementById('layerContradictions').checked,
+                    attractors: document.getElementById('layerAttractors').checked,
+                    seedSites: document.getElementById('layerSeedSites').checked,
+                    // Earth Engine layers
+                    ndvi: document.getElementById('layerNDVI').checked,
+                    canopy: document.getElementById('layerCanopy').checked,
+                    terrain: document.getElementById('layerTerrain').checked,
+                    water: document.getElementById('layerWater').checked
+                }
+            };
+        }
+        
+        // Construct map state URL
+        function constructMapStateUrl(stateId = null) {
+            const baseUrl = window.location.origin + window.location.pathname;
+            
+            if (stateId) {
+                // Use saved state ID
+                return `${baseUrl}?state=${stateId}`;
+            } else {
+                // Construct URL from current parameters
+                const params = getCurrentMapParams();
+                const searchParams = new URLSearchParams();
+                
+                searchParams.set('lat', params.lat.toFixed(6));
+                searchParams.set('lng', params.lng.toFixed(6));
+                searchParams.set('zoom', params.zoom);
+                
+                // Add layer parameters
+                Object.entries(params.layers).forEach(([layer, enabled]) => {
+                    if (enabled) searchParams.append('layer', layer);
+                });
+                
+                return `${baseUrl}?${searchParams.toString()}`;
+            }
+        }
+        
+        // Update URL with current map state without refreshing page
+        function updateUrlWithMapState() {
+            const stateUrl = constructMapStateUrl();
+            window.history.replaceState({}, '', stateUrl);
+        }
+        
+        // Check URL for map state parameters
+        function checkUrlForMapState() {
+            const searchParams = new URLSearchParams(window.location.search);
+            
+            // Check for saved state reference
+            const stateId = searchParams.get('state');
+            if (stateId) {
+                fetch(`${API_URL}/map-states/${stateId}`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('State not found');
+                        return response.json();
+                    })
+                    .then(state => {
+                        loadMapState(state.state_params);
+                    })
+                    .catch(error => {
+                        console.error('Error loading map state:', error);
+                    });
+                return;
+            }
+            
+            // Otherwise check for direct parameters
+            const lat = parseFloat(searchParams.get('lat'));
+            const lng = parseFloat(searchParams.get('lng'));
+            const zoom = parseInt(searchParams.get('zoom'));
+            
+            if (!isNaN(lat) && !isNaN(lng) && !isNaN(zoom)) {
+                map.setView([lat, lng], zoom);
+            }
+            
+            // Set active layers
+            const layers = searchParams.getAll('layer');
+            if (layers.length > 0) {
+                // Reset all layers
+                document.getElementById('layerPhi0').checked = false;
+                document.getElementById('layerContradictions').checked = false;
+                document.getElementById('layerAttractors').checked = false;
+                document.getElementById('layerSeedSites').checked = false;
+                
+                map.removeLayer(phi0Layer);
+                map.removeLayer(contradictionsLayer);
+                map.removeLayer(attractorsLayer);
+                map.removeLayer(seedSitesLayer);
+                
+                // Enable specified layers
+                layers.forEach(layer => {
+                    if (layer === 'phi0') {
+                        document.getElementById('layerPhi0').checked = true;
+                        map.addLayer(phi0Layer);
+                    } else if (layer === 'contradictions') {
+                        document.getElementById('layerContradictions').checked = true;
+                        loadContradictionsData();
+                        map.addLayer(contradictionsLayer);
+                    } else if (layer === 'attractors') {
+                        document.getElementById('layerAttractors').checked = true;
+                        loadAttractorsData();
+                        map.addLayer(attractorsLayer);
+                    } else if (layer === 'seedSites') {
+                        document.getElementById('layerSeedSites').checked = true;
+                        loadSeedSitesData();
+                        map.addLayer(seedSitesLayer);
+                    }
+                });
+            }
+        }
+        
+        // Load map state
+        function loadMapState(stateParams) {
+            if (!stateParams) return;
+            
+            // Set map view
+            if (stateParams.lat && stateParams.lng && stateParams.zoom) {
+                map.setView([stateParams.lat, stateParams.lng], stateParams.zoom);
+            }
+            
+            // Set layers
+            if (stateParams.layers) {
+                // Reset all layers
+                document.getElementById('layerPhi0').checked = false;
+                document.getElementById('layerContradictions').checked = false;
+                document.getElementById('layerAttractors').checked = false;
+                document.getElementById('layerSeedSites').checked = false;
+                document.getElementById('layerNDVI').checked = false;
+                document.getElementById('layerCanopy').checked = false;
+                document.getElementById('layerTerrain').checked = false;
+                document.getElementById('layerWater').checked = false;
+                
+                map.removeLayer(phi0Layer);
+                map.removeLayer(contradictionsLayer);
+                map.removeLayer(attractorsLayer);
+                map.removeLayer(seedSitesLayer);
+                
+                if (window.EarthEngine) {
+                    map.removeLayer(EarthEngine.layers.ndvi);
+                    map.removeLayer(EarthEngine.layers.canopy);
+                    map.removeLayer(EarthEngine.layers.terrain);
+                    map.removeLayer(EarthEngine.layers.water);
+                }
+                
+                // Hide all Earth Engine legends
+                document.getElementById('ndviLegend')?.style.setProperty('display', 'none');
+                document.getElementById('canopyLegend')?.style.setProperty('display', 'none');
+                document.getElementById('terrainLegend')?.style.setProperty('display', 'none');
+                document.getElementById('waterLegend')?.style.setProperty('display', 'none');
+                
+                // Enable specified layers
+                if (stateParams.layers.phi0) {
+                    document.getElementById('layerPhi0').checked = true;
+                    map.addLayer(phi0Layer);
+                }
+                
+                if (stateParams.layers.contradictions) {
+                    document.getElementById('layerContradictions').checked = true;
+                    if (contradictionsLayer.getLayers().length === 0) {
+                        loadContradictionsData();
+                    }
+                    map.addLayer(contradictionsLayer);
+                }
+                
+                if (stateParams.layers.attractors) {
+                    document.getElementById('layerAttractors').checked = true;
+                    if (attractorsLayer.getLayers().length === 0) {
+                        loadAttractorsData();
+                    }
+                    map.addLayer(attractorsLayer);
+                }
+                
+                if (stateParams.layers.seedSites) {
+                    document.getElementById('layerSeedSites').checked = true;
+                    if (seedSitesLayer.getLayers().length === 0) {
+                        loadSeedSitesData();
+                    }
+                    map.addLayer(seedSitesLayer);
+                }
+                
+                // Earth Engine layers
+                if (window.EarthEngine) {
+                    if (stateParams.layers.ndvi) {
+                        document.getElementById('layerNDVI').checked = true;
+                        map.addLayer(EarthEngine.layers.ndvi);
+                        document.getElementById('ndviLegend').style.display = 'block';
+                    }
+                    
+                    if (stateParams.layers.canopy) {
+                        document.getElementById('layerCanopy').checked = true;
+                        map.addLayer(EarthEngine.layers.canopy);
+                        document.getElementById('canopyLegend').style.display = 'block';
+                    }
+                    
+                    if (stateParams.layers.terrain) {
+                        document.getElementById('layerTerrain').checked = true;
+                        map.addLayer(EarthEngine.layers.terrain);
+                        document.getElementById('terrainLegend').style.display = 'block';
+                    }
+                    
+                    if (stateParams.layers.water) {
+                        document.getElementById('layerWater').checked = true;
+                        map.addLayer(EarthEngine.layers.water);
+                        document.getElementById('waterLegend').style.display = 'block';
+                    }
+                }
+            }
+            
+            // Update URL
+            updateUrlWithMapState();
+        }
+        
+        // Load contradiction data
+        function loadContradictionsData() {
+            // This would fetch contradiction data from the API
+            // For the MVP, we'll just use placeholder data
+            contradictionsLayer.clearLayers();
+            
+            // In a real implementation, this would be loaded from the API
+            const sampleData = [
+                { lat: -12.2514, lng: -69.3620, type: "NDVI vs Canopy Height", strength: 0.65 },
+                { lat: -12.2914, lng: -69.4920, type: "Historical Report vs Terrain", strength: 0.8 },
+                { lat: -12.3314, lng: -69.5120, type: "Pattern Alignment", strength: 0.7 }
+            ];
+            
+            sampleData.forEach(point => {
+                const marker = L.circleMarker([point.lat, point.lng], {
+                    radius: 10,
+                    color: '#ff00ff',
+                    fillColor: '#ff00ff',
+                    fillOpacity: 0.6,
+                    weight: 2
+                });
+                
+                marker.bindPopup(`
+                    <b>Contradiction: ${point.type}</b><br>
+                    Strength: ${(point.strength * 100).toFixed(1)}%
+                `)
+                
+                contradictionsLayer.addLayer(marker);
+            });
+        }
+        
+        // Load attractors data
+        function loadAttractorsData() {
+            // This would fetch attractor data from the API
+            // For the MVP, we'll just use placeholder data
+            attractorsLayer.clearLayers();
+            
+            // In a real implementation, this would be loaded from the API
+            const sampleData = [
+                { lat: -12.1714, lng: -69.2420, name: "River Confluence", type: "hydrological", strength: 0.9 },
+                { lat: -12.3114, lng: -69.6420, name: "Elevation Anomaly", type: "geological", strength: 0.75 },
+                { lat: -12.4514, lng: -69.1920, name: "Historical Reference", type: "symbolic", strength: 0.8 }
+            ];
+            
+            sampleData.forEach(point => {
+                const marker = L.circleMarker([point.lat, point.lng], {
+                    radius: 12,
+                    color: '#0000ff',
+                    fillColor: '#0000ff',
+                    fillOpacity: 0.7,
+                    weight: 2
+                });
+                
+                marker.bindPopup(`
+                    <b>${point.name}</b><br>
+                    Type: ${point.type}<br>
+                    Strength: ${(point.strength * 100).toFixed(1)}%
+                `);
+                
+                attractorsLayer.addLayer(marker);
+            });
+        }
+        
+        // Load seed sites data
+        function loadSeedSitesData() {
+            // This would fetch seed sites data from the API
+            // For the MVP, we'll just use placeholder data
+            seedSitesLayer.clearLayers();
+            
+            // In a real implementation, this would be loaded from the API
+            const sampleData = [
+                { lat: -12.2714, lng: -69.3420, name: "Kuhikugu", type: "settlement", confidence: "confirmed" },
+                { lat: -12.1914, lng: -69.5120, name: "Site 47B", type: "minor_settlement", confidence: "probable" },
+                { lat: -12.3614, lng: -69.2820, name: "Geoglyph A12", type: "ceremonial_center", confidence: "confirmed" }
+            ];
+            
+            const siteIcon = L.icon({
+                iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+            
+            sampleData.forEach(site => {
+                const marker = L.marker([site.lat, site.lng], { icon: siteIcon });
+                
+                marker.bindPopup(`
+                    <b>${site.name}</b><br>
+                    Type: ${site.type.replace('_', ' ')}<br>
+                    Confidence: ${site.confidence}
+                `);
+                
+                seedSitesLayer.addLayer(marker);
+            });
+        }
+    </script>
+</body>
+</html>
