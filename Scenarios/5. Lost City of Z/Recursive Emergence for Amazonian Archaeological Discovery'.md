@@ -1,3 +1,54 @@
+## Introducing Our Method: Recursive Emergence (RE)
+
+**How can we discover something that’s not only hidden—but never fully recorded?**
+Our answer: treat the Amazon not as a blank map, but as a recursive memory system.
+
+We use a method called **Recursive Emergence (RE)**—a framework originally developed (https://github.com/Recursive-Emergence/RE)to explain how structure arises across biology, cognition, and society. In this challenge, we apply it to **archaeological discovery**.
+
+---
+
+### What is Recursive Emergence?
+
+**RE models how patterns build on previous ones to create new, coherent structures.**
+Imagine how a village road hints at a plaza, and a plaza hints at farmland and fishponds. RE captures that logic:
+
+* It begins with **compressed motifs** from known sites (like Kuhikugu or Casarabe)
+* It **projects** them onto unexplored regions, using both structure and environmental constraints
+* It applies recursive feedback to refine predictions as new evidence emerges
+
+In short, RE doesn’t just say *“this looks weird.”*
+It asks *“what structure must be here, if this system evolved coherently?”*
+
+---
+
+### Why Use RE?
+
+Unlike traditional detection methods that search for anomalies, RE searches for **emergent coherence**:
+
+* It **combines multiple data sources**—LIDAR, satellite, historical texts, oral maps
+* It **builds hypotheses** that are spatially and culturally grounded
+* It **learns recursively**—each discovery improves the next prediction
+
+Our method ranks candidate sites not just on similarity, but on **emergence potential**:
+```math
+P(\Phi) = R(\Phi) \cdot \Delta H \cdot S(\Phi, \Omega)
+```
+
+* **R** = how reusable the pattern is (motif recurrence)
+* **ΔH** = how much entropy it reduces (does it explain confusion?)
+* **S** = how well it fits the spatial/historical/terrain lattice
+
+---
+
+
+### Why It Matters
+
+RE helps us not only rediscover the past, but **reconstruct how it made sense to the people who built it**.
+It offers a new tool: one that’s explainable, generative, and adaptive.
+And because RE is **recursive**, each discovery seeds the next—like memory itself.
+
+
+
 The goal is to move beyond simple data overlay and scoring, and instead create a system that *recursively refines its understanding* of what constitutes a potential archaeological site in the Amazonian context.
 
 **Overall Strategy: Recursive Emergence for Amazonian Archaeological Discovery**
