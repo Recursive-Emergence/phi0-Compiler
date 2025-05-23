@@ -50,6 +50,21 @@ def init_db():
         logger.info("Continuing with schema creation...")
 
     try:
+        # Drop all tables to ensure clean start
+        with engine.connect() as connection:
+            connection.execute(text("DROP TABLE IF EXISTS public.environmental_data CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.phi0_results CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.data_processing_tasks CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.grid_cells CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.discussions CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.discussion_messages CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.map_states CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.seed_sites CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.psi0_attractors CASCADE"))
+            connection.execute(text("DROP TABLE IF EXISTS public.agent_state CASCADE"))
+            logger.info("Dropped existing tables for clean initialization")
+            connection.commit()
+
         # Using default 'public' schema
         with engine.connect() as connection:
             # No need to create schema as 'public' exists by default

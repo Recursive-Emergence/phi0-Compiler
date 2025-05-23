@@ -1,15 +1,21 @@
 // Show Earth Engine error message
 function showEarthEngineError(message) {
     // Create error container if not exists
-    let errorContainer = document.querySelector('.earth-engine-error');
+    let errorContainer = document.getElementById('earthEngineErrorContainer');
     if (!errorContainer) {
         errorContainer = document.createElement('div');
+        errorContainer.id = 'earthEngineErrorContainer';
         errorContainer.className = 'earth-engine-error alert alert-danger alert-dismissible fade show';
         errorContainer.role = 'alert';
+        errorContainer.style.position = 'fixed';
+        errorContainer.style.bottom = '20px';
+        errorContainer.style.left = '20px';
+        errorContainer.style.zIndex = '9999';
+        errorContainer.style.maxWidth = '500px';
         document.body.appendChild(errorContainer);
     }
     
-    // Set message
+    // Set message and ensure it's visible
     errorContainer.innerHTML = `
         <strong>Earth Engine Error:</strong> ${message}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

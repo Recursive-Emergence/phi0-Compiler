@@ -22,13 +22,14 @@ app = FastAPI(
     version="0.1.0"
 )
 
-# Set up CORS middleware
+# Set up CORS middleware - ensuring frontend can access all endpoints
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # For development only - restrict in production
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["Content-Length", "Content-Type"]
 )
 
 # Redis client
@@ -45,7 +46,7 @@ def read_root():
     return {"message": "RE-Archaeology Agent API", "docs_url": "/docs"}
 
 # Import and include routers
-from backend.api.routers import grid_cells, environmental_data, phi0_results, discussions, map_states, earth_engine
+from backend.api.routers import grid_cells, environmental_data, phi0_results, discussions, map_states, earth_engine, seed_sites
 
 app.include_router(grid_cells.router, prefix=settings.API_V1_STR, tags=["grid_cells"])
 app.include_router(environmental_data.router, prefix=settings.API_V1_STR, tags=["environmental_data"])
@@ -53,6 +54,7 @@ app.include_router(phi0_results.router, prefix=settings.API_V1_STR, tags=["phi0_
 app.include_router(discussions.router, prefix=settings.API_V1_STR, tags=["discussions"])
 app.include_router(map_states.router, prefix=settings.API_V1_STR, tags=["map_states"])
 app.include_router(earth_engine.router, prefix=settings.API_V1_STR, tags=["earth_engine"])
+app.include_router(seed_sites.router, prefix=settings.API_V1_STR, tags=["seed_sites"])
 
 # Mount static files for frontend
 frontend_path = pathlib.Path(__file__).parent.parent.parent / "frontend"

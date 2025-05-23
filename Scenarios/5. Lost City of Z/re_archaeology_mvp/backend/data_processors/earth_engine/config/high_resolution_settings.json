@@ -1,0 +1,100 @@
+{
+  "grid_resolution": {
+    "degrees": 0.005,
+    "description": "High-resolution 500m grid cells for more precise archaeological site detection"
+  },
+  "buffer_sizes": {
+    "ndvi": 250,
+    "ndbi": 250,
+    "rh100": 25,
+    "slope": 250,
+    "curvature": 250,
+    "elevation": {
+      "local": 25,
+      "context": 1000
+    }
+  },
+  "attractor_dimensions": [
+    {
+      "name": "NDVI",
+      "description": "Normalized Difference Vegetation Index",
+      "source": "COPERNICUS/S2_SR_HARMONIZED",
+      "scale": 10
+    },
+    {
+      "name": "NDBI",
+      "description": "Normalized Difference Built-up Index (SWIR/NIR)",
+      "source": "COPERNICUS/S2_SR_HARMONIZED",
+      "scale": 50,
+      "bands": [
+        "B11",
+        "B8"
+      ]
+    },
+    {
+      "name": "RH100",
+      "description": "Canopy height",
+      "source": "LARSE/GEDI/GEDI02_A_002_MONTHLY",
+      "scale": 30
+    },
+    {
+      "name": "Slope",
+      "description": "Terrain steepness",
+      "source": "USGS/SRTMGL1_003",
+      "scale": 30
+    },
+    {
+      "name": "Curvature",
+      "description": "Local terrain curvature",
+      "source": "USGS/SRTMGL1_003",
+      "derived": true,
+      "scale": 30
+    },
+    {
+      "name": "ElevationAnomaly",
+      "description": "Height deviation relative to 1km buffer",
+      "source": "USGS/SRTMGL1_003",
+      "derived": true,
+      "scale": 30
+    },
+    {
+      "name": "FractalNDVI",
+      "description": "Temporal ecological stability",
+      "source": "COPERNICUS/S2_SR_HARMONIZED",
+      "temporal": true,
+      "timespan": "2018-01-01/2023-12-31",
+      "derived": true
+    }
+  ],
+  "symbolic_sites": [
+    {
+      "name": "Cotoca",
+      "lat": -14.9898697,
+      "lon": -64.5968503,
+      "type": "lidar"
+    },
+    {
+      "name": "Land\u00edvar",
+      "lat": -15.2012842,
+      "lon": -64.4677797,
+      "type": "lidar"
+    },
+    {
+      "name": "Kuhikugu",
+      "lat": -12.558333,
+      "lon": -53.111111,
+      "type": "mythic"
+    }
+  ],
+  "attractor_boost": {
+    "lidar": {
+      "dist_5km": 1.5,
+      "dist_10km": 0.75
+    },
+    "mythic": {
+      "dist_10km": 1.0,
+      "dist_20km": 0.5
+    }
+  },
+  "collapse_threshold": 3.5
+}

@@ -68,6 +68,30 @@ def get_cell_environmental_data(
     """
     env_data = db.query(EnvironmentalData).filter(EnvironmentalData.cell_id == cell_id).first()
     if not env_data:
+        # Check if this is a sample/fallback cell (like from the phi0 heatmap data)
+        if cell_id.startswith("sample-") or cell_id.startswith("kuhikugu-") or cell_id.startswith("local-") or cell_id.startswith("amazon-"):
+            logger.info(f"Environmental data not found for cell {cell_id}, returning sample fallback data")
+            
+            # Create sample environmental data based on the cell id
+            sample_data = {
+                "cell_id": cell_id,
+                "ndvi_mean": 0.65 + (hash(cell_id) % 20) / 100,  # Random but consistent value between 0.65-0.85
+                "ndvi_std": 0.08,
+                "canopy_height_mean": 25.0 + (hash(cell_id) % 15),  # 25-40m
+                "canopy_height_std": 5.2,
+                "elevation_mean": 280.0 + (hash(cell_id[:5]) % 120),  # 280-400m
+                "elevation_std": 15.8,
+                "slope_mean": 2.5 + (hash(cell_id) % 8),  # 2.5-10.5 degrees
+                "slope_std": 1.2,
+                "water_proximity": 150 + (hash(cell_id) % 500),  # 150-650m
+                "raw_data": {
+                    "processed_date": "2023-01-01T00:00:00Z",
+                    "source": "fallback_data"
+                }
+            }
+            
+            return EnvironmentalDataResponse(**sample_data)
+        
         raise HTTPException(status_code=404, detail="Environmental data not found for this cell")
     
     return env_data

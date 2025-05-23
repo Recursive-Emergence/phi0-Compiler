@@ -28,6 +28,7 @@ services:
       # DATABASE_URL=postgresql://re_archaeology:re_archaeology_pass@db:5432/re_archaeology_db
       # For remote connection, use:
       # DATABASE_URL=postgresql://postgres:<PASSWORD>@34.59.159.217:5432/postgres
+      - DATABASE_URL=${DATABASE_URL}
       - REDIS_URL=redis://redis:6379/0
     volumes:
       - ./backend:/app/backend

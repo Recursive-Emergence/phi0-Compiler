@@ -12,6 +12,10 @@ class GridCell(Base):
     
     id = Column(Integer, primary_key=True)
     cell_id = Column(String(50), unique=True, nullable=False)
+    lon_min = Column(Float)
+    lon_max = Column(Float)
+    lat_min = Column(Float)
+    lat_max = Column(Float)
     geom = Column(Geometry('POLYGON', srid=4326), nullable=False)
     centroid = Column(Geometry('POINT', srid=4326))
     created_at = Column(DateTime(timezone=True), server_default=func.now())
